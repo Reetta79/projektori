@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:200,400,700');
+
+
+.projectform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family:Nunito, sans-serif,400;
+    padding: 3em;
+    }
+    
+    .projectform input, .projectform select {
+    display: flex;
+    padding:1em;
+    justify-items: center;
+    justify-self: center;
+    justify-content: space-evenly;
+    }
+    
+    .prjectform > * {
+        flex: 1 1 auto;
+      }

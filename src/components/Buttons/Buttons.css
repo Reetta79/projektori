@@ -1,12 +1,12 @@
 .button {
-    background-color:#ee6c02;
+    
     color: #000;
     border: none;
     outline: none;
-    padding: 0.7em;
-    margin: 0.5em;
-    border-radius: 0.2em;
-    box-shadow: rgba(0,0,0,0.5) 0px 2px 2px;
+    padding: 1.0em;
+    margin: 1.5em;
+    border-radius: 0.8em;
+    box-shadow: rgba(0,0,0,0.5) 0px 4px 4px;
     font-weight: bold;
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@
 }
 
 .button:active {
-    box-shadow: rgba(0,0,0,0.5) 0px 2px 5px;
+    box-shadow: rgba(0,0,0,0.5) 0px 4px 10px;
     background-color: #999;
 }
 

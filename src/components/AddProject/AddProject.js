@@ -9,7 +9,7 @@ import './AddProject.css';
     return (
       <Content>
 
-        <h2> Lisää tapahtuma </h2>
+        <h2> Syötä projektin tai kehitystehtävän tiedot </h2>
         
         <ProjectForm/>
       </Content>

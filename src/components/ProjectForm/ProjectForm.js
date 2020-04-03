@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from '../buttons';
 
-
+import './ProjectForm.css';
 class ProjectForm extends React.Component {
 
     
@@ -49,36 +49,47 @@ class ProjectForm extends React.Component {
                     
                         <div className="projectform">
                         <div> 
-                        <h3>Syötä projektin tai kehitystehtävän tiedot</h3>
                         </div>
+                        <div className="projectform__select">
                         <div>
                         <label for="name" > Valitse tyyppi </label>
-                        <select name = "tyyppi" value={this.state.data.tyyppi} onChange={this.handleInputChange}>
-                                <option value= ""></option>
+                        <select type="text" name = "tyyppi"  value={this.state.data.tyyppi} onChange={this.handleInputChange}>
                                 <option value= "Uusi järjestelmä">Uusi järjestelmä</option>
                                 <option value= "Järjestelmän jatkokehitys">Järjestelmän jatkokehitys</option>
                                 <option value= "Prosessin kehitys">Prosessin kehitys</option>
                         </select>
                         </div>
+                        </div>
+
+                        <div className="projectform__select">
                         <div>
                         <label>Aloituspäivä <input  type="date" name="alkupvm" value={this.state.data.alkupvm} onChange={this.handleInputChange}/></label>
                         </div>
+                        </div>
+                        <div className="projectform__select">
                         <div>
                         <label>Päättymispäivä <input type="date" name="loppupvm" value={this.state.data.loppupvm} onChange={this.handleInputChange} /></label>   
                         </div>
-                        <div>
-                        <label>Projektin nimi<input type="text" name="kuvaus" value={this.state.data.kuvaus} onChange={this.handleInputChange} /></label>   
                         </div>
+                        <div className="projectform__row">
                         <div>
-                        <label for="name" > Budjetoitu? </label>
+                        <label>Projektin nimi<input type="text" name="kuvaus" size="40" value={this.state.data.kuvaus} onChange={this.handleInputChange} /></label>   
+                        </div>
+                        </div>
+                        <div className="projectform__row">
+                        <div>
+                        <label for="name" > Budjetoitu </label>
                         <select name = "budjetti" value={this.state.data.budjetti} onChange={this.handleInputChange}>
                                 <option value= ""></option>
                                 <option value= "yes">Kyllä</option>
                                 <option value= "no">Ei</option>
                         </select>
                         </div>
+                        </div>
+                        <div className="projectform__row">
                         <div>
-                        <label>Valmiusaste<input type="number" name="valmiusaste" value={this.state.data.valmiusaste} onChange={this.handleInputChange} /></label>   
+                        <label>Valmiusaste<input type="number" size="8" name="valmiusaste" value={this.state.data.valmiusaste} onChange={this.handleInputChange} /></label>   
+                        </div>
                         </div>
                         <div>
                         <label for="name"> Valmis
@@ -86,7 +97,7 @@ class ProjectForm extends React.Component {
                         </label>
                         </div>
                         <div>
-                        <p><button name={Button}>Tallenna</button></p>
+                        <p><button name={Button} size="10">Tallenna</button></p>
                         </div>
                         </div>
                             
