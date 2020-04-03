@@ -1,0 +1,18 @@
+.projectcard {
+    padding: 1em;
+    border-bottom: 1 px solid #BADDFE;
+  }
+  
+  .projectcard__row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .projectcard__tyyppi {
+    font-weight: 700;
+    }
+  
+  .kulutosite__summa {
+    font-weight: 700;
+    color: rgb(6, 0, 12);
+    }

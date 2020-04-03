@@ -1,0 +1,10 @@
+
+
+.menu {
+    background-color: rgb(68, 162, 240);
+    display: flex;
+    justify-content: space-evenly;
+    max-height: 4em;
+    min-height: 4em;
+    align-items: center;
+  }
