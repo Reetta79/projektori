@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+import Button from '../buttons';
 
 
 class ProjectForm extends React.Component {
@@ -86,7 +86,7 @@ class ProjectForm extends React.Component {
                         </label>
                         </div>
                         <div>
-                        <p><button>Tallenna</button></p>
+                        <p><button name={Button}>Tallenna</button></p>
                         </div>
                         </div>
                             

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Buttons.css';
+import './buttons.css';
 
 const classNames = classnames => classnames.join(" ");
 
@@ -17,5 +17,6 @@ const Button = ({ className = "", primary, secondary, ...props}) => {
       {...props} />    
   );
 }
+
 
 export default Button;
