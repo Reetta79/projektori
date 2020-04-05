@@ -5,11 +5,14 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-family:Nunito, sans-serif,400;
-    padding: 3em;
+    }
+
+    .projectform__row {
+      padding: 0.5em;
+      font-weight: 400;
     }
     
-    .projectform input, .projectform select {
+    .projectform input, .projectform select{
     display: flex;
     padding:1em;
     justify-items: center;
@@ -17,6 +20,8 @@
     justify-content: space-evenly;
     }
     
+    .porject
+
     .prjectform > * {
         flex: 1 1 auto;
       }

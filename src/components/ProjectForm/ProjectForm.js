@@ -50,7 +50,7 @@ class ProjectForm extends React.Component {
                         <div className="projectform">
                         <div> 
                         </div>
-                        <div className="projectform__select">
+                        <div className="projectform__row">
                         <div>
                         <label for="name" > Valitse tyyppi </label>
                         <select type="text" name = "tyyppi"  value={this.state.data.tyyppi} onChange={this.handleInputChange}>
@@ -61,12 +61,12 @@ class ProjectForm extends React.Component {
                         </div>
                         </div>
 
-                        <div className="projectform__select">
+                        <div className="projectform__row">
                         <div>
                         <label>Aloituspäivä <input  type="date" name="alkupvm" value={this.state.data.alkupvm} onChange={this.handleInputChange}/></label>
                         </div>
                         </div>
-                        <div className="projectform__select">
+                        <div className="projectform__row">
                         <div>
                         <label>Päättymispäivä <input type="date" name="loppupvm" value={this.state.data.loppupvm} onChange={this.handleInputChange} /></label>   
                         </div>
@@ -90,11 +90,6 @@ class ProjectForm extends React.Component {
                         <div>
                         <label>Valmiusaste<input type="number" size="8" name="valmiusaste" value={this.state.data.valmiusaste} onChange={this.handleInputChange} /></label>   
                         </div>
-                        </div>
-                        <div>
-                        <label for="name"> Valmis
-                            <input name="valmis" type="checkbox" checked={this.state.data.valmis} onChange={this.handleInputChange} />
-                        </label>
                         </div>
                         <div>
                         <p><button name={Button} size="10">Tallenna</button></p>

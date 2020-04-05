@@ -24,11 +24,11 @@ function ProjectCard(props) {
           <div className="projectcard__loppupvm">{loppupvm.format("D.M.Y")}</div>
           </div>
           <div className="projectcard__row"> 
-          <h4>Budjetti: </h4>
+          <h4>Budjetti </h4>
           <div className="projectcard__budjetti">{props.data.budjetti}</div>
           </div>
           <div className="projectcard__row"> 
-          <h4>Kuvaus: </h4>
+          <h4>Kuvaus </h4>
           <div className="projectcard__">{props.data.kuvaus}</div>   
           </div>
           <div className="projectcard__row"> 
