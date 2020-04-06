@@ -1,13 +1,21 @@
 import React from 'react';
 
-import './Stats.css'
 
-function Stats(props) {
-    return(
-      <div className ="stats">
-        <h1>Työn alla</h1>
-      </div>
+import Content from '../Content/Content';
+
+import './Stats.css';
+
+ function Projectstats(props) {
+    return (
+      <Content>
+
+        <h2> Tilastot </h2>
+       
+      
+       
+
+      </Content>
     );
   }
-  
-  export default Stats;
+
+  export default Projectstats;
