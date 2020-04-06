@@ -1,7 +1,10 @@
 import React from 'react';
 
+
 import Content from '../Content/Content';
 import ProjectForm from '../ProjectForm/ProjectForm';
+
+
 
 import './AddProject.css';
 
@@ -10,8 +13,10 @@ import './AddProject.css';
       <Content>
 
         <h2> Syötä projektin tai kehitystehtävän tiedot </h2>
-        
+       
         <ProjectForm onFormSubmit = {props.onFormSubmit}/>
+       
+
       </Content>
     );
   }

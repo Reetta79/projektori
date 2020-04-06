@@ -10,10 +10,6 @@ import ProjectDone from './ProjectDone/ProjectDone';
 import AddProject from './components/AddProject/AddProject';
 
 
-
-
-
-
 class App extends Component {
 
       constructor(props) {
@@ -28,8 +24,15 @@ class App extends Component {
 
             let storeddata = this.state.data.slice();
             storeddata.push(newdata);
+            storeddata.sort((a,b) => {
+            const aDate= new Date(a.loppupvm);
+            const bDate= new Date(b.loppupvm);
+            return aDate.getTime-bDate.getTime();
+            });
+
             this.setState({
               data: storeddata
+              
             });
 
           }
