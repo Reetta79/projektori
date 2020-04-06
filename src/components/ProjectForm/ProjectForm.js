@@ -3,6 +3,8 @@ import React from 'react';
 import Button from '../buttons';
 
 import './ProjectForm.css';
+
+
 class ProjectForm extends React.Component {
 
     
@@ -15,10 +17,9 @@ class ProjectForm extends React.Component {
                         loppupvm: undefined,
                         kuvaus:undefined,
                         budjetti:undefined,
-                        valmiusaste:undefined,
-                        valmis:undefined
+                        valmiusaste:undefined
                     }
-                }
+                };
                 this.handleInputChange=this.handleInputChange.bind(this);
                 this.handleSubmit=this.handleSubmit.bind(this);
             }
@@ -35,11 +36,13 @@ class ProjectForm extends React.Component {
                         }  
                      });
               
-            };
+            }
 
             handleSubmit(event){
                 event.preventDefault();
-                console.log ("lähetetty")
+                console.log ("lähetetty");
+                let data= Object.assign({}, this.state.data);
+                this.props.onFormSubmit(this.state.data);
             }
 
             render(){
@@ -81,8 +84,8 @@ class ProjectForm extends React.Component {
                         <label for="name" > Budjetoitu </label>
                         <select name = "budjetti" value={this.state.data.budjetti} onChange={this.handleInputChange}>
                                 <option value= ""></option>
-                                <option value= "yes">Kyllä</option>
-                                <option value= "no">Ei</option>
+                                <option value= "Kyllä">Kyllä</option>
+                                <option value= "Ei">Ei</option>
                         </select>
                         </div>
                         </div>
@@ -92,7 +95,10 @@ class ProjectForm extends React.Component {
                         </div>
                         </div>
                         <div>
-                        <p><button name={Button} size="10">Tallenna</button></p>
+                        <p><Button type= "submit" primary>Tallenna</Button></p>
+                        </div>
+                        <div>
+                        <p><Button  secondary>Peruuta</Button></p>
                         </div>
                         </div>
                             

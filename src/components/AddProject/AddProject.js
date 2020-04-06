@@ -11,7 +11,7 @@ import './AddProject.css';
 
         <h2> Syötä projektin tai kehitystehtävän tiedot </h2>
         
-        <ProjectForm/>
+        <ProjectForm onFormSubmit = {props.onFormSubmit}/>
       </Content>
     );
   }

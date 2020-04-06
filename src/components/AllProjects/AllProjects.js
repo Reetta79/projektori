@@ -8,7 +8,7 @@ const allProjects = [
         kuvaus:"Projektinhallinta",
         budjetti:"Kyllä",
         valmiusaste:50,
-        valmis:""
+        
       },
       {
         id: "2",
@@ -18,7 +18,7 @@ const allProjects = [
         kuvaus:"Liittymän muutos Xenaan",
         budjetti:"Kyllä",
         valmiusaste: 20,
-        valmis:""
+        
       },
       {
         id: "3",
@@ -28,7 +28,7 @@ const allProjects = [
         kuvaus:"Laskun hyväksyntäprosessi",
         budjetti:"Ei",
         valmiusaste:0,
-        valmis:""
+        
       },
     
     ];

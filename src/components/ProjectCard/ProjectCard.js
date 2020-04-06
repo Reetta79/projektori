@@ -35,10 +35,6 @@ function ProjectCard(props) {
           <h4>Valmis % </h4>
           <div className="projectcard__row">{props.data.valmiusaste}</div>   
           </div>
-          <div className="projectcard__row"> 
-          <h4>Päättynyt</h4>
-          <div className="projectcard__row">{props.data.valmis}</div>   
-          </div>
           </div>
     );
   }

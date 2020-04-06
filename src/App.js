@@ -13,6 +13,7 @@ import AddProject from './components/AddProject/AddProject';
 
 
 
+
 class App extends Component {
 
       constructor(props) {
@@ -20,24 +21,35 @@ class App extends Component {
         this.state ={
           data: AllProjects
         }
+       this.handleFormSubmit= this.handleFormSubmit.bind(this);
       }
+
+          handleFormSubmit(newdata) {
+
+            let storeddata = this.state.data.slice();
+            storeddata.push(newdata);
+            this.setState({
+              data: storeddata
+            });
+
+          }
   
 
 
-        render() {
-          return(
-              <Router>
-              <div className="App">
-              <Header />
-              <Route path= "/" exact render = {()=><Projects data={this.state.data}/>} />
-              <Route path= "/stats" component={Stats} />
-              <Route path= "/done" render = { () => <ProjectDone/>} />
-              <Route path= "/add" render = { () => <AddProject /> } />
-              <Menu/>
-              </div>
-              </Router>
-            );
-        }
+            render() {
+              return(
+                  <Router>
+                  <div className="App">
+                  <Header />
+                  <Route path= "/" exact render = {()=><Projects data={this.state.data}/>} />
+                  <Route path= "/stats" component={Stats} />
+                  <Route path= "/done" render = { () => <ProjectDone/>} />
+                  <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit}/> } />
+                  <Menu/>
+                  </div>
+                  </Router>
+                );
+            }
       
 }
 

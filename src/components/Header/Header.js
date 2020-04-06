@@ -5,7 +5,7 @@ import './Header.css'
 function Header(props) {
     return(
       <div className ="header">
-        <h1>Missä idea?</h1>
+        <h1>Projektori</h1>
       </div>
     );
   }
