@@ -3,6 +3,7 @@ import moment from 'moment';
 
 
 import './ProjectCard.css';
+import { Link } from 'react-router-dom';
 
 function ProjectCard(props) {
 
@@ -34,6 +35,9 @@ function ProjectCard(props) {
           <div className="projectcard__row"> 
           <h4>Valmis % </h4>
           <div className="projectcard__row">{props.data.valmiusaste}</div>   
+          </div>
+          <div>
+          <p><Link to={"/edit/" + props.data.id}><label>Muokkaa</label> </Link> </p>
           </div>
           </div>
     );

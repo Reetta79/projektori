@@ -1,8 +1,8 @@
-const checkboxes = [
+const allCheckboxes = [
     {
       name: 'check-box-1',
       key: 'checkBox1',
-      label: 'Valmis',
+      label: 'Placeholder',
     },
     {
       name: 'check-box-2',
@@ -21,4 +21,4 @@ const checkboxes = [
     },
   ];
   
-  export default checkboxes;
+  export default allCheckboxes;

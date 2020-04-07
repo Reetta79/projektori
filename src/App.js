@@ -8,6 +8,7 @@ import AllProjects from './components/AllProjects/AllProjects';
 import Projects from './components/Projects/Projects';
 import ProjectDone from './ProjectDone/ProjectDone';
 import AddProject from './components/AddProject/AddProject';
+import EditProject from './components/EditProject/EditProject';
 
 
 class App extends Component {
@@ -36,10 +37,9 @@ class App extends Component {
               data: storeddata
               
             });
-          }
-            
-  
+           
 
+          }
 
             render () {
               return(  
@@ -47,9 +47,10 @@ class App extends Component {
                   <div className="App">
                   <Header />
                   <Route path= "/" exact render = {()=><Projects data={this.state.data}/>} />
-                  <Route path ="/stats" render= { () => <Projectstats/>} /> 
+                  <Route path ="/stats" render= { () => <Projectstats data = {this.props.Checkbox}/>} /> 
                   <Route path= "/done" render = { () => <ProjectDone/>} />
                   <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit}/> } />
+                  <Route path= "/edit" render = { () => <EditProject/>} />
                   <Menu/>
                   </div>
                   </Router>
@@ -58,6 +59,7 @@ class App extends Component {
             }         
       
           }
+        
 
 
 export default App;

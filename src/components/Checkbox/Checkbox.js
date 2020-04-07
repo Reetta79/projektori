@@ -1,16 +1,43 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 
-const Checkbox = ({ type = 'checkbox', name, checked = false, onChange }) => (
-  <input type={type} name={name} checked={checked} onChange={onChange} />
-);
+class Checkbox extends React.Component {
 
-Checkbox.propTypes = {
-  type: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  checked: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
+
+  constructor(props) {
+    super(props)
+    this.state = {
+       choises: [
+        {id: 1, value: "Uusi järjestelmä", isChecked: false},
+        {id: 2, value: "Järjestelmän jatkokehitys", isChecked: false},
+        {id: 3, value: "Prosessin kehitys", isChecked: false},
+      ]
+    }
+  }
+
+  handleCheckChieldElement = (event) => {
+    let choises = this.state.choises
+    choises.forEach(choise => {
+      if (choise.value === event.target.value)
+        choise.isChecked =  event.target.checked
+      })
+    this.setState({choises: choises})
+ }
+  
+  render() {
+    return (
+      <div className="Checkbox">
+         
+        <ul>
+        {
+          this.state.choises.map((choise) => {
+            return (<checkBox handleCheckChieldElement={this.handleCheckChieldElement}  {...choise} />)
+          })
+        }
+        </ul>
+      </div>
+    );
+  }
 }
 
 export default Checkbox;

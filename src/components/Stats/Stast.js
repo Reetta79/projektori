@@ -2,6 +2,8 @@ import React from 'react';
 
 
 import Content from '../Content/Content';
+import Checkbox from '../Checkbox/Checkbox';
+import CheckboxList from '../CheckboxList/CheckboxList';
 
 import './Stats.css';
 
@@ -11,7 +13,7 @@ import './Stats.css';
 
         <h2> Tilastot </h2>
        
-      
+        <Checkbox onClick = {props.Checkbox}/>   
        
 
       </Content>
