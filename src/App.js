@@ -6,9 +6,10 @@ import Menu from './components/Menu/Menu';
 import Projectstats from './components/Stats/Stast.js';
 import AllProjects from './components/AllProjects/AllProjects';
 import Projects from './components/Projects/Projects';
-import ProjectDone from './ProjectDone/ProjectDone';
+import ProjectDone from './components/ProjectDone/ProjectDone';
 import AddProject from './components/AddProject/AddProject';
 import EditProject from './components/EditProject/EditProject';
+import Search from './components/Search/Search';
 
 
 class App extends Component {
@@ -28,18 +29,28 @@ class App extends Component {
             storeddata.sort((a,b) => {
             const aDate= new Date(a.loppupvm);
             const bDate= new Date(b.loppupvm);
-            return aDate.getTime-bDate.getTime();
-            });
-
-          
+            return bDate.getTime() - aDate.getTime();
+            }); 
 
             this.setState({
               data: storeddata
               
             });
-           
-
           }
+
+            handleSelectListForm(newproject) {
+              let selectList = this.state.selectList.slice();
+              selectList.push(newproject)
+              selectList.sort();
+              this.setState({
+                selectList:selectList
+              });
+            }
+      
+          
+        
+     
+      
 
             render () {
               return(  
@@ -47,10 +58,11 @@ class App extends Component {
                   <div className="App">
                   <Header />
                   <Route path= "/" exact render = {()=><Projects data={this.state.data}/>} />
-                  <Route path ="/stats" render= { () => <Projectstats data = {this.props.Checkbox}/>} /> 
-                  <Route path= "/done" render = { () => <ProjectDone/>} />
-                  <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit}/> } />
-                  <Route path= "/edit" render = { () => <EditProject/>} />
+                  <Route path="/" exact render = {() => <Search data={this.state.data} />} />
+                  <Route path ="/stats" render= { () => <Projectstats/>} /> 
+                  <Route path= "/done" render = { () => <ProjectDone data={this.state.data} selectList= {this.state.selectList}/>} />
+                  <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit} selectList= {this.state.selectList} />} /> 
+                  <Route path= "/edit/:id" render = {(props) => <EditProject data={this.state.data} selectList= {this.state.selectList} {...props} /> }/>
                   <Menu/>
                   </div>
                   </Router>

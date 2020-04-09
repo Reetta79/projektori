@@ -1,22 +1,17 @@
 const allCheckboxes = [
     {
-      name: 'check-box-1',
+      name: 'Uusi Järjestelmä',
       key: 'checkBox1',
-      label: 'Placeholder',
-    },
-    {
-      name: 'check-box-2',
-      key: 'checkBox2',
       label: 'Uusi järjestelmä',
     },
     {
-      name: 'check-box-3',
-      key: 'checkBox3',
+      name: 'Järjestelmän jatkokehitys',
+      key: 'checkBox2',
       label: 'Järjestelmän jatkokehitys',
     },
     {
-      name: 'check-box-4',
-      key: 'checkBox4',
+      name: 'Prosessin kehitys',
+      key: 'checkBox3',
       label: 'Prosessin kehitys',
     },
   ];
