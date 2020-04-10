@@ -4,7 +4,7 @@ import Button from '../buttons';
 import { withRouter } from 'react-router';
 
 
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 
 import './ProjectForm.css';
@@ -18,7 +18,8 @@ class ProjectForm extends React.Component {
             constructor(props){
                 super(props);
                 const data =props.data ? props.data : 
-                {tyyppi:"",
+                {   
+                tyyppi:"",
                 alkupvm: "",
                 loppupvm: "",
                 kuvaus:"",
@@ -50,10 +51,8 @@ class ProjectForm extends React.Component {
 
             handleSubmit(event){
                 event.preventDefault();
-                console.log ("lähetetty");
                 let data= Object.assign({}, this.state.data);
-                data.id=uuidv4();
-
+                data.id= data.id ? data.id : uuidv4();
                 this.props.onFormSubmit(this.state.data);
                 this.props.history.push("/");
             }
@@ -110,14 +109,26 @@ class ProjectForm extends React.Component {
                         </div>
                         <div className="projectform__row">
                         <div>
-                        <label htmlFor="valmiusaste" >Valmiusaste<input type="number" size="8" name="valmiusaste" value={this.state.data.valmiusaste} onChange={this.handleInputChange} /></label>   
+                        <label htmlFor="name" > Valmiusaste </label>
+                        <select type="text" name = "valmiusaste"  value={this.state.data.valmiusaste} onChange={this.handleInputChange}>
+                                <option value= "10">10</option>
+                                <option value= "20">20</option>
+                                <option value= "30">30</option>
+                                <option value= "40">40</option>
+                                <option value= "50">50</option>
+                                <option value= "60">60</option>
+                                <option value= "70">70</option>
+                                <option value= "80">80</option>
+                                <option value= "90">90</option>
+                                <option value= "valmis">Valmis</option>
+                        </select>
                         </div>
                         </div>
                         <div>
-                        <p><Button type= "submit" primary>Tallenna</Button></p>
+                        <Button type= "submit" primary>{this.state.data.id ? "Tallenna" : "Lisää"}</Button>
                         </div>
                         <div>
-                        <p><Button onClick={this.handleCancel} secondary>Peruuta</Button></p>
+                        <Button onClick={this.handleCancel} secondary>Peruuta</Button>
                         </div>
                         </div>                            
                         </form>

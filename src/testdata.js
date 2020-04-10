@@ -1,4 +1,4 @@
-const allProjects = [
+const testdata = [
 
     {
         id: "1",
@@ -7,7 +7,7 @@ const allProjects = [
         loppupvm: '2019-03-28',
         kuvaus:"Projektinhallinta",
         budjetti:"Kyllä",
-        valmiusaste:100,
+        valmiusaste:"Valmis",
         
       },
       {
@@ -17,7 +17,7 @@ const allProjects = [
         loppupvm: '2020-06-20',
         kuvaus:"Liittymän muutos Xenaan",
         budjetti:"Kyllä",
-        valmiusaste: 20,
+        valmiusaste: "20",
         
       },
       {
@@ -27,10 +27,10 @@ const allProjects = [
         loppupvm: '2020-09-20',
         kuvaus:"Laskun hyväksyntäprosessi",
         budjetti:"Ei",
-        valmiusaste:0,
+        valmiusaste:"0",
         
       },
     
     ];
     
-    export default allProjects;
+    export default testdata;

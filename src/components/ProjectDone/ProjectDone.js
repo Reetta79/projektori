@@ -1,24 +1,19 @@
 import React from 'react';
 
-
-import allProjects from  '../AllProjects/AllProjects';
-
 import moment from 'moment';
 
-
-import './ProjectDone.css';
+import testdata from '../../testdata';
 
   
   class ProjectDone extends React.Component {
   
-     projectDone(id) {
-      console.log("Done" + id);
-    }
+
         
      render(){
+       
   
-        let filteredProjects =allProjects.filter(project => 
-           project.valmiusaste === 100
+        let filteredProjects = testdata.filter(project => 
+           project.valmiusaste === "Valmis"
         );
   
           let rows = filteredProjects.map (project => {
@@ -27,7 +22,6 @@ import './ProjectDone.css';
             let loppupvm = moment(project.loppupvm);
 
          return(
-
 
         <div className="projectcard">
             <div className="projectcard__row">
@@ -77,3 +71,5 @@ import './ProjectDone.css';
   
   
   export default ProjectDone;
+
+

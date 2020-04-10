@@ -28,7 +28,7 @@ class VisibleProjects extends Component {
 
   render() {
     return (
-      <Projects data={this.state.filteredProjects} match={this.props.match} onChange={this.filterProjects} />
+      <Projects dataKuvaus={this.state.filteredProjects} match={this.props.match} onChange={this.filterProjects} />
     )
   }
 }

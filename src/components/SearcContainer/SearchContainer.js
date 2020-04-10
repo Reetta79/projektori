@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import  allProjects from '../AllProjects/AllProjects';
+import  testdata from '../../testdata';
 
 import Projects from '../Projects/Projects';
 
@@ -17,8 +17,8 @@ class VisibleProjects extends Component {
 
   componentWillMount() {
     this.setState({
-      allProjects,
-      filteredProjects: allProjects
+      testdata,
+      filteredProjects: testdata
     })
   }
 
