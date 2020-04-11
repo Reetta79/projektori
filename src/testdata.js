@@ -1,7 +1,7 @@
 const testdata = [
 
     {
-        id: "1",
+        id: '1',
         tyyppi:"Uusi järjestelmä",
         alkupvm: '2019-03-20',
         loppupvm: '2019-03-28',
@@ -11,7 +11,7 @@ const testdata = [
         
       },
       {
-        id: "2",
+        id: '2',
         tyyppi:"Järjestelmän jatkokehitys",
         alkupvm: '2019-03-202',
         loppupvm: '2020-06-20',
@@ -21,7 +21,7 @@ const testdata = [
         
       },
       {
-        id: "3",
+        id: '3',
         tyyppi:"Prosessin kehitys",
         alkupvm: '2019-03-20',
         loppupvm: '2020-09-20',
@@ -30,6 +30,36 @@ const testdata = [
         valmiusaste:"0",
         
       },
+    {
+      id: '4',
+      tyyppi:"Uusi järjestelmä",
+      alkupvm: '2019-03-20',
+      loppupvm: '2019-03-28',
+      kuvaus:"Projektinhallinta",
+      budjetti:"Kyllä",
+      valmiusaste:"Valmis",
+      
+    },
+    {
+      id: '5',
+      tyyppi:"Järjestelmän jatkokehitys",
+      alkupvm: '2019-03-202',
+      loppupvm: '2020-06-20',
+      kuvaus:"Liittymän muutos Xenaan",
+      budjetti:"Kyllä",
+      valmiusaste: "Valmis",
+      
+    },
+    {
+      id: '6',
+      tyyppi:"Prosessin kehitys",
+      alkupvm: '2019-03-20',
+      loppupvm: '2020-09-20',
+      kuvaus:"Laskun hyväksyntäprosessi",
+      budjetti:"Ei",
+      valmiusaste:"0",
+      
+    }
     
     ];
     

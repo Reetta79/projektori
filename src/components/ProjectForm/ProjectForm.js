@@ -18,7 +18,8 @@ class ProjectForm extends React.Component {
             constructor(props){
                 super(props);
                 const data =props.data ? props.data : 
-                {   
+                {    
+                id:"",
                 tyyppi:"",
                 alkupvm: "",
                 loppupvm: "",
@@ -51,16 +52,24 @@ class ProjectForm extends React.Component {
 
             handleSubmit(event){
                 event.preventDefault();
+                console.log('lähetetty')
                 let data= Object.assign({}, this.state.data);
                 data.id= data.id ? data.id : uuidv4();
-                this.props.onFormSubmit(this.state.data);
+                this.props.onFormSubmit(data);
                 this.props.history.push("/");
             }
+
+        
+               
 
             handleCancel(event){
                 event.preventDefault();
                 this.props.history.goBack(); 
             }
+
+
+          
+
 
             render(){
                 return(
@@ -94,7 +103,7 @@ class ProjectForm extends React.Component {
                         </div>
                         <div className="projectform__row">
                         <div>
-                        <label htmlFor="kuvaus">Projektin nimi<input type="text" name="kuvaus" size="40" value={this.state.data.kuvaus} onChange={this.handleInputChange} /></label>   
+                        <label htmlFor="kuvaus">Projektin lisätiedot: <input type="text" name="kuvaus" size="40" value={this.state.data.kuvaus} onChange={this.handleInputChange} /></label>   
                         </div>
                         </div>
                         <div className="projectform__row">
@@ -110,17 +119,8 @@ class ProjectForm extends React.Component {
                         <div className="projectform__row">
                         <div>
                         <label htmlFor="name" > Valmiusaste </label>
-                        <select type="text" name = "valmiusaste"  value={this.state.data.valmiusaste} onChange={this.handleInputChange}>
-                                <option value= "10">10</option>
-                                <option value= "20">20</option>
-                                <option value= "30">30</option>
-                                <option value= "40">40</option>
-                                <option value= "50">50</option>
-                                <option value= "60">60</option>
-                                <option value= "70">70</option>
-                                <option value= "80">80</option>
-                                <option value= "90">90</option>
-                                <option value= "valmis">Valmis</option>
+                        <select type="text" name = "valmiusaste"  value={this.state.data.valmiusaste} onChange={this.handleInputChange} >
+                            {this.props.selectList.map(project => <option value={project}>{project}</option>)}
                         </select>
                         </div>
                         </div>

@@ -1,9 +1,12 @@
 import React from 'react';
 import moment from 'moment';
-
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
 import './ProjectCard.css';
 import { Link } from 'react-router-dom';
+
+
+
 
 function ProjectCard(props) {
 
@@ -12,7 +15,7 @@ function ProjectCard(props) {
   
 
       return(
-      <div className="projectcard">
+      <div className="projectcard" key={props.data.id}>
           <div className="projectcard__row">
           <div className="projectcard__tyyppi">{props.data.tyyppi}</div>
           </div>
@@ -39,6 +42,8 @@ function ProjectCard(props) {
           <div>
           <p><Link to={"/edit/" + props.data.id}><label>Muokkaa</label> </Link> </p>
           </div>
+          
+           <div className="menu__nappi" onClick= {() =>(this.props.doneProjects)}><CheckCircleOutlineIcon color="action"/></div>
           </div>
     );
   }

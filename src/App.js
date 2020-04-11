@@ -13,12 +13,15 @@ import EditProject from './components/EditProject/EditProject';
 
 
 
+
 class App extends Component {
 
       constructor(props) {
         super(props);
         this.state ={
-          data: testdata
+          data: testdata,
+          selectList: ["","10","20","30","40","50","60","70","80","90","Valmis"],
+          done:[]
         }
        this.handleFormSubmit= this.handleFormSubmit.bind(this);
       }
@@ -42,6 +45,7 @@ class App extends Component {
               data: storeddata
               
             });
+            
           }
 
             handleSelectListForm(newproject) {
@@ -52,18 +56,19 @@ class App extends Component {
                 selectList:selectList
               });
             }
-      
-          
+             
+            project
+                
             render () {
               return(  
                   <Router>
                   <div className="App">
                   <Header />
-                  <Route path= "/" exact render = {()=><Projects data={this.state.data}/>} />
+                  <Route path= "/" exact render = {()=><Projects data={this.state.data} doneProject={this.state.doneProject}/>} />
                   <Route path ="/stats" render= { () => <Projectstats/>} /> 
-                  <Route path= "/done" render = { () => <ProjectDone data={this.state.data} selectList= {this.state.selectList} onFormSubmit={this.handleFormSubmit} />} />
-                  <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit} selectList= {this.state.selectList} />} /> 
-                  <Route path= "/edit/:id" render = {(props) => <EditProject data={this.state.data} selectList= {this.state.selectList} onFormSubmit={this.handleFormSubmit}{...props} /> }/>
+                  <Route path= "/done" render = { (props) => <ProjectDone data={this.state.data} selectList= {this.state.selectList} project={this.state.project} {...props}/>} />
+                  <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit} selectList= {this.state.selectList} doneProject={this.doneProject}/>} /> 
+                  <Route path= "/edit/:id" render = {(props) => <EditProject data={this.state.data} selectList= {this.state.selectList} onFormSubmit={this.handleFormSubmit} doneProject={this.doneProject} {...props} /> }/>
                   <Menu/>
                   </div>
                   </Router>

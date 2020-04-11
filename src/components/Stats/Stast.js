@@ -12,8 +12,6 @@ import './Stats.css';
 
         <h2> Tilastot </h2>
        
-  
-       
 
       </Content>
     );

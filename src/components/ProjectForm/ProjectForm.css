@@ -19,9 +19,7 @@
     justify-self: center;
     justify-content: space-evenly;
     }
-    
-    .porject
 
-    .prjectform > * {
+    .projectform > * {
         flex: 1 1 auto;
       }

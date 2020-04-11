@@ -1,16 +1,36 @@
 import React from 'react';
-import { Link } from 'react-router';
+import testdata from '../../testdata';
 
-class Linkki extends React.Component {
-    render() {
-        return (
+
+class ProjectsDone2 extends React.Component {
+
+  readyProject(id){}
+
+    
+
+    render (){
+
+        let filteredProjects=testdata.filter( project => project.valmiusaste === "Valmis");
+        
+        return(
+            <>
             <div>
-                <ul>
-                    <li><Link to="/react">Muokkaa</Link></li>
-                </ul>
+             <div   className="header" >
+                <h2> Valmiit </h2>
+             </div>  
+             <div   className="content" >
+                <p> Valmiit </p>
+             </div>   
             </div>
+
+
+
+            </>
+
+
+
         );
     }
 }
 
-export default Linkki;
+export default ProjectsDone2;

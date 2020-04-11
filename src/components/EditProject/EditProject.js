@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import Content from '../Content/Content';
 import ProjectForm from '../ProjectForm/ProjectForm';
 import './EditProject.css';
@@ -20,8 +19,10 @@ import './EditProject.css';
 
         <h2> Muokkaa projektin tietoja </h2>
 
-       <p>Match: {index}</p>
-        <ProjectForm onFormSubmit = {props.onFormSubmit} selectList={props.selectList} data={projectData}/>
+       <p>Match:{index}</p>
+        <ProjectForm onFormSubmit = {props.onFormSubmit} selectList={props.selectList} data={projectData} />
+
+       
        
         </div>
       </Content>
