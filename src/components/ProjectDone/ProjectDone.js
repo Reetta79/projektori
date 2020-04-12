@@ -15,7 +15,8 @@ import testdata from '../../testdata';
 
           let alkupvm = moment(project.alkupvm);
           let loppupvm = moment(project.loppupvm);
-          let valmis= Date.now();
+          let valmis= Date(Date.now());
+          valmis.toString();
 
             return(
 
