@@ -27,7 +27,7 @@
 
 .button--primary {
     background-color: #0285ee;
-    color: #fff;
+    color: rgb(15, 14, 14);
 }
 
 .button--primary:active {
@@ -35,8 +35,8 @@
 }
 
 .button--secondary {
-    background-color: #ee6c02;
-    color: #fff;    
+    background-color: #02ee3d;
+    color: rgb(15, 14, 14);    
 }
 
 .button--secondary:active {

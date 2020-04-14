@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Projects from '../Projects/Projects';
 
 class VisibleProjects extends Component {
+  
   constructor() {
     super()
     this.state = {
@@ -20,7 +21,7 @@ class VisibleProjects extends Component {
       let dataKuvaus = data.kuvaus.toLowerCase() 
       return data.indexOf(
         dataFilter.toLowerCase()) !== -1
-    })
+    });
     this.setState({
       filteredProjects
     })

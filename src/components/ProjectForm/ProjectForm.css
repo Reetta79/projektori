@@ -9,9 +9,18 @@
 
     .projectform__row {
       padding: 0.5em;
-      font-weight: 400;
+      font-weight: 700;
+
     }
     
+    .info__user{
+      padding:0.5em;
+      font-weight: 400;
+      font-size: small;
+      color: indianred;
+
+    }
+
     .projectform input, .projectform select{
     display: flex;
     padding:1em;

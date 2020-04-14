@@ -10,6 +10,7 @@ import Projects from './components/Projects/Projects';
 import ProjectDone from './components/ProjectDone/ProjectDone';
 import AddProject from './components/AddProject/AddProject';
 import EditProject from './components/EditProject/EditProject';
+import Button from './components/buttons/index';
 
 
 
@@ -19,13 +20,18 @@ class App extends Component {
       constructor(props) {
         super(props);
         this.state ={
-          data: testdata,
-          selectList: ["","10","20","30","40","50","60","70","80","90","Valmis"],
-          done:[]
+          data: testdata
+         /* choises:    [{id:"1", value:"Uusi järjestelmä", isChecked:false},
+                      {id:"2", value:"Järjestelmän jatkokehitys", isChecked:false},
+                      {id:"3", value:"Prosessin kehitys", isChecked:false} checkbox-valinnat kesken*/
         }
        this.handleFormSubmit= this.handleFormSubmit.bind(this);
+       this.handleList=this.handleList.bind(this);
+       this.handleList2=this.handleList2.bind(this);
+       this.handleList3=this.handleList3.bind(this);
+       /* this.handleInfo=this.handleInfo.bind(this); kesken */
       }
-
+          /*projektien lisäys lomakkeella ja id:n tarkistus*/
           handleFormSubmit(newdata) {
 
             let storeddata = this.state.data.slice();
@@ -33,7 +39,7 @@ class App extends Component {
             if (index >= 0) {
               storeddata[index] = newdata;
             } else {
-            storeddata.push(newdata);
+            storeddata.push(newdata); /*projektien lajittelu asetetun päättymispäivän mukaan niin, että vanhimmat päivämäärät ensin*/
             }
             storeddata.sort((a,b) => {
             const aDate= new Date(a.loppupvm);
@@ -45,30 +51,101 @@ class App extends Component {
               data: storeddata
               
             });
-            
+            /*
+            let filteredProjects = this.state.data.filter(done => done.id === this.state.data.id);
+            const done = filteredProjects.valmiusaste === "Valmis";
+            if (done === true) {
+              let projectdone = Object.assign({},filteredProjects[0]); 
+              projectdone.done=Date.now();
+              let doneProject=this.state.doneProject.slice();
+              doneProject.push(projectdone);
+            }
+            this.setState({
+              doneProject : doneProject
+            }
+            );*/
           }
 
-            handleSelectListForm(newproject) {
-              let selectList = this.state.selectList.slice();
-              selectList.push(newproject)
-              selectList.sort();
-              this.setState({
-                selectList:selectList
-              });
+              
+         
+            
+          
+
+            handleList() {
+            let data= this.state.data.slice();
+            data.sort (function (a, b) {
+              if(a.valmiusaste>b.valmiusaste)
+              {return -1;}
+              if (a.valmiusaste<b.valmiusaste) 
+              {return 1;}   
+              else {
+               return 0; 
+              }
+            });
+            this.setState({
+              data: data
+              
+            });
             }
-             
-            project
+            
+            
+            handleList2() {
+              let data= this.state.data.slice();
+              data.sort (function (a, b) {
+                if(a.tyyppi>b.tyyppi)
+                {return -1;}
+                if (a.tyyppi<b.tyyppi) 
+                {return 1;}   
+                else {
+                 return 0; 
+                }
+              });
+              this.setState({
+                data: data
+                
+              });
+              }
+
+            
+              handleList3() {
+                let data= this.state.data.slice();
+                data.sort (function (a, b) {
+                  if(a.valmiusaste<b.valmiusaste)
+                  {return -1;}
+                  if (a.valmiusaste>b.valmiusaste) 
+                  {return 1;}   
+                  else {
+                   return 0; 
+                  }
+                });
+                this.setState({
+                  data: data
+                  
+                });
+                }
+
+               /* handleInfo(){
+                  let teksti="Näytä uudet järjestelmät ensin";
+                  return teksti;
+                } kesken*/
+              
                 
             render () {
               return(  
                   <Router>
                   <div className="App">
-                  <Header />
-                  <Route path= "/" exact render = {()=><Projects data={this.state.data} doneProject={this.state.doneProject}/>} />
+                  <Header  />
+                  <div>
+                  <Route path= "/" exact render= {() => <Button onClick={this.handleList} secondary> Valmiit </Button>} />
+                 <Route path= "/" exact render= {() => <Button onClick={this.handleList3} secondary> 0->valmis </Button>}/>
+                  </div>
+                  <Route path = "/" exact render = { () => <Button onClick={this.handleList2} secondary>Tyyppi</Button>}/>
+                  
+                  <Route path= "/" exact render = {()=><Projects data={this.state.data} />} />
                   <Route path ="/stats" render= { () => <Projectstats/>} /> 
-                  <Route path= "/done" render = { (props) => <ProjectDone data={this.state.data} selectList= {this.state.selectList} project={this.state.project} {...props}/>} />
-                  <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit} selectList= {this.state.selectList} doneProject={this.doneProject}/>} /> 
-                  <Route path= "/edit/:id" render = {(props) => <EditProject data={this.state.data} selectList= {this.state.selectList} onFormSubmit={this.handleFormSubmit} doneProject={this.doneProject} {...props} /> }/>
+                  <Route path= "/done" render = { (props) => <ProjectDone data={this.state.done} doneProject={this.handleFormSubmit} {...props}/>} />
+                  <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit}  doneProject={this.handleDone}/>} /> 
+                  <Route path= "/edit/:id" render = {(props) => <EditProject data={this.state.data}  onFormSubmit={this.handleFormSubmit} {...props} /> }/>
                   <Menu/>
                   </div>
                   </Router>
