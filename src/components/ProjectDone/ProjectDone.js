@@ -2,30 +2,19 @@ import React from 'react';
 
 import moment from 'moment';
 
-
+import testdata from '../../testdata'
   
-  class ProjectDone extends React.Component {
+  class ProjectDone extends React.Component  {
 
+   render(){
+     
 
-    render(){
-       
-        /*verrataan valmiusastetta ja indexiä*/
-              let data = function (doneProjects,currentProject) {
-              if (currentProject[0].valmiusaste === "Valmis"){
-              let index =doneProjects.findIndex(project => project.id === currentProject.id);
-              if (index<0){
-              doneProjects.push(currentProject);
-              }
-               } 
-              return doneProjects; /*paluuarvona valmiiksi asetetut*/
-              }
-       
-        
-        /*tulostetaan muokatut tiedot*/
-       
-           let projects= (data,[]);
-                 
-           let rows = projects.map (project => {
+      let filteredProjects = testdata.filter (project => 
+        project.valmiusaste === "Valmis"
+      );
+
+        let rows = filteredProjects.map (project => {
+
 
             let alkupvm = moment(project.alkupvm);
             let loppupvm = moment(project.loppupvm);
@@ -80,6 +69,7 @@ import moment from 'moment';
         );
         }
       }
+    
       
       
   export default ProjectDone;

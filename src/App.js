@@ -135,15 +135,18 @@ class App extends Component {
                   <Router>
                   <div className="App">
                   <Header  />
-                  <div>
-                  <Route path= "/" exact render= {() => <Button onClick={this.handleList} secondary> Valmiit </Button>} />
-                 <Route path= "/" exact render= {() => <Button onClick={this.handleList3} secondary> 0->valmis </Button>}/>
+                  <div className="Nappi">
+                  <Route path= "/" exact render= {() => <button onClick={this.handleList} secondary> Järjestä: valmiit ensin </button>} />
                   </div>
-                  <Route path = "/" exact render = { () => <Button onClick={this.handleList2} secondary>Tyyppi</Button>}/>
-                  
+                  <div className="Nappi">
+                  <Route path= "/" exact render= {() => <button onClick={this.handleList3} secondary> Järjestä: valmiina 0% -100% </button>}/>
+                  </div>
+                  <div className="Nappi">
+                  <Route path = "/" exact render = { () => <button onClick={this.handleList2} secondary>Järjestä: Uudet järjestelmät ensin</button>}/>
+                  </div>
                   <Route path= "/" exact render = {()=><Projects data={this.state.data} />} />
                   <Route path ="/stats" render= { () => <Projectstats/>} /> 
-                  <Route path= "/done" render = { (props) => <ProjectDone data={this.state.done} doneProject={this.handleFormSubmit} {...props}/>} />
+                  <Route path= "/done" render = { (props) => <ProjectDone data={this.state.data}{...props}/>} />
                   <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit}  doneProject={this.handleDone}/>} /> 
                   <Route path= "/edit/:id" render = {(props) => <EditProject data={this.state.data}  onFormSubmit={this.handleFormSubmit} {...props} /> }/>
                   <Menu/>
