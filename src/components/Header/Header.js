@@ -1,15 +1,17 @@
 import React from 'react';
 
-import './Header.css'
-import TaustaKuva from '../Images/TaustaKuva.png';
+import './Header.css';
+
+import IMG_0616 from '../Images/IMG_0616.jpg';
+
 
 function Header() {
     return(
-      
+     
       <div className ="header">
-        <h1>Projektori</h1><img src={TaustaKuva} alt="header"/>
-        
-      </div>
+        <h1>Projektori</h1>
+        </div>
+     
     );
   }
   

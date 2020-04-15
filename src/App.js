@@ -7,10 +7,11 @@ import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
 import Projectstats from './components/Stats/Stast.js';
 import Projects from './components/Projects/Projects';
-import ProjectDone from './components/ProjectDone/ProjectDone';
 import AddProject from './components/AddProject/AddProject';
 import EditProject from './components/EditProject/EditProject';
-import Button from './components/buttons/index';
+import ProjectDone from './components/ProjectDone/ProjectDone';
+
+
 
 
 
@@ -26,10 +27,10 @@ class App extends Component {
                       {id:"3", value:"Prosessin kehitys", isChecked:false} checkbox-valinnat kesken*/
         }
        this.handleFormSubmit= this.handleFormSubmit.bind(this);
+       /*this.onClick=this.onClick.bind(this);*/
        this.handleList=this.handleList.bind(this);
        this.handleList2=this.handleList2.bind(this);
        this.handleList3=this.handleList3.bind(this);
-       /* this.handleInfo=this.handleInfo.bind(this); kesken */
       }
           /*projektien lisäys lomakkeella ja id:n tarkistus*/
           handleFormSubmit(newdata) {
@@ -51,20 +52,19 @@ class App extends Component {
               data: storeddata
               
             });
-            /*
-            let filteredProjects = this.state.data.filter(done => done.id === this.state.data.id);
-            const done = filteredProjects.valmiusaste === "Valmis";
-            if (done === true) {
-              let projectdone = Object.assign({},filteredProjects[0]); 
-              projectdone.done=Date.now();
-              let doneProject=this.state.doneProject.slice();
-              doneProject.push(projectdone);
+          }
+            
+           /* onClick(projectId){
+            
+              if (this.state.done.valmiusaste === "Valmis") {
+              done.push(done);
             }
             this.setState({
-              doneProject : doneProject
+              data : done
             }
-            );*/
+            );
           }
+          */
 
               
          
@@ -124,10 +124,7 @@ class App extends Component {
                 });
                 }
 
-               /* handleInfo(){
-                  let teksti="Näytä uudet järjestelmät ensin";
-                  return teksti;
-                } kesken*/
+               
               
                 
             render () {
@@ -137,18 +134,14 @@ class App extends Component {
                   <Header  />
                   <div className="Nappi">
                   <Route path= "/" exact render= {() => <button onClick={this.handleList} secondary> Järjestä: valmiit ensin </button>} />
-                  </div>
-                  <div className="Nappi">
                   <Route path= "/" exact render= {() => <button onClick={this.handleList3} secondary> Järjestä: valmiina 0% -100% </button>}/>
-                  </div>
-                  <div className="Nappi">
                   <Route path = "/" exact render = { () => <button onClick={this.handleList2} secondary>Järjestä: Uudet järjestelmät ensin</button>}/>
                   </div>
                   <Route path= "/" exact render = {()=><Projects data={this.state.data} />} />
                   <Route path ="/stats" render= { () => <Projectstats/>} /> 
-                  <Route path= "/done" render = { (props) => <ProjectDone data={this.state.data}{...props}/>} />
-                  <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit}  doneProject={this.handleDone}/>} /> 
-                  <Route path= "/edit/:id" render = {(props) => <EditProject data={this.state.data}  onFormSubmit={this.handleFormSubmit} {...props} /> }/>
+                  <Route path= "/done" render = { () => <ProjectDone data={this.state.data} onClick={this.onClick} />} />
+                  <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit}  onClick={this.onClick}/>} /> 
+                  <Route path= "/edit/:id" render = {(props) => <EditProject data={this.state.data}  onFormSubmit={this.handleFormSubmit} onClick={this.onClick} {...props} /> }/>
                   <Menu/>
                   </div>
                   </Router>

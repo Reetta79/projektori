@@ -9,9 +9,9 @@ import './Stats.css';
  function Projectstats(props) {
     return (
       <Content>
-
-        <h2> Tilastot </h2>
-       
+        
+        <h3> Tilastot </h3>
+        
 
       </Content>
     );

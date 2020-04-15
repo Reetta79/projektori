@@ -34,6 +34,7 @@ class ProjectForm extends React.Component {
                 this.handleInputChange=this.handleInputChange.bind(this);
                 this.handleSubmit=this.handleSubmit.bind(this);
                 this.handleCancel=this.handleCancel.bind(this);
+                /*this.onClick=this.onClick.bind(this);*/
                
             }
 
@@ -61,7 +62,9 @@ class ProjectForm extends React.Component {
                 data.id= data.id ? data.id : uuidv4();
                 this.props.onFormSubmit(data);
                 this.props.history.push("/");
+            
             }
+         
             
         
                
