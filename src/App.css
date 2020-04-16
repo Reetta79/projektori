@@ -20,8 +20,9 @@
 }
 
 .Nappi{
-  color: #000;
-  box-shadow: rgba(0,0,0,0.5) 0px 4px 4px;
+  color: rgb(8, 27, 2);
+  background-color: greenyellow;
+  box-shadow: rgba(166, 233, 33, 0.883) 0px 4px 4px;
   font-weight: bold;
   display: contents;
   flex-direction: column;

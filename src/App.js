@@ -12,10 +12,6 @@ import EditProject from './components/EditProject/EditProject';
 import DoneProjects from './components/DoneProject/DoneProject';
 
 
-
-
-
-
 class App extends Component {
 
       constructor(props) {
@@ -50,15 +46,6 @@ class App extends Component {
             });
           }
             
-   
-
-          
-
-              
-         
-            
-          
-
             handleList() {
             let data= this.state.data.slice();
             data.sort (function (a, b) {
@@ -80,9 +67,9 @@ class App extends Component {
             handleList2() {
               let data= this.state.data.slice();
               data.sort (function (a, b) {
-                if(a.tyyppi>b.tyyppi)
+                if(a.kuvaus>b.kuvaus)
                 {return -1;}
-                if (a.tyyppi<b.tyyppi) 
+                if (a.kuvaus<b.kuvaus) 
                 {return 1;}   
                 else {
                  return 0; 
@@ -123,11 +110,11 @@ class App extends Component {
                   <div className="Nappi">
                   <Route path= "/" exact render= {() => <button onClick={this.handleList} secondary> Järjestä: valmiit ensin </button>} />
                   <Route path= "/" exact render= {() => <button onClick={this.handleList3} secondary> Järjestä: valmiina 0% -100% </button>}/>
-                  <Route path = "/" exact render = { () => <button onClick={this.handleList2} secondary>Järjestä: Uudet järjestelmät ensin</button>}/>
+                  <Route path = "/" exact render = { () => <button onClick={this.handleList2} secondary>Järjestä: Kuvauksen mukaan </button>}/>
                   </div>
                   <Route path= "/" exact render = {()=><Projects data={this.state.data} />} />
                   <Route path ="/stats" render= { () => <Projectstats/>} /> 
-                  <Route path= "/done" render = { () => <DoneProjects data={this.state.data} />} />
+                  <Route path= "/done" render = { (props) => <DoneProjects data={this.state.data}{...props} />} />
                   <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit} />} /> 
                   <Route path= "/edit/:id" render = {(props) => <EditProject data={this.state.data}  onFormSubmit={this.handleFormSubmit} {...props} /> }/>
                   <Menu/>

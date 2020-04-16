@@ -8,13 +8,14 @@
     border-radius: 0.5em;
     box-shadow: rgba(0,0,0,0.5) 0px 4px 4px;
     font-weight: bold;
-    display: flex;
+    display:inline-table;
     width: 8.0em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     opacity: 0.8;
 }
+
 
 .button:active {
     box-shadow: rgba(0,0,0,0.5) 0px 4px 10px;

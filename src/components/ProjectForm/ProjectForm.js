@@ -146,8 +146,7 @@ class ProjectForm extends React.Component {
                         </div>
                         <div>
                         <Button type= "submit" primary >{this.state.data.id ? "Tallenna" : "Lisää"} </Button>
-                        </div>
-                        <div>
+                        
                         <Button onClick={this.handleCancel} secondary>Peruuta</Button>
                         </div>
                         </div>                            
