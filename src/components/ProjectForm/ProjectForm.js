@@ -5,9 +5,11 @@ import { withRouter } from 'react-router';
 
 
 import { v4 as uuidv4 } from 'uuid';
-
+import Checkbox from '@material-ui/core/Checkbox';
 
 import './ProjectForm.css';
+
+
 
 
 
@@ -34,7 +36,7 @@ class ProjectForm extends React.Component {
                 this.handleInputChange=this.handleInputChange.bind(this);
                 this.handleSubmit=this.handleSubmit.bind(this);
                 this.handleCancel=this.handleCancel.bind(this);
-                /*this.onClick=this.onClick.bind(this);*/
+                this.handleDeleteProject=this.handleDeleteProject.bind(this);
                
             }
 
@@ -72,6 +74,12 @@ class ProjectForm extends React.Component {
             handleCancel(event){
                 event.preventDefault();
                 this.props.history.goBack(); 
+            }
+
+            handleDeleteProject(event){
+                event.preventDefault();
+                this.props.onDeleteProject(this.state.data.id);
+                this.props.history.push("/");
             }
 
 
@@ -113,7 +121,7 @@ class ProjectForm extends React.Component {
                         </div>
                         <div className="projectform__row">
                         <div>
-                        <label htmlFor="kuvaus">Projektin lisätiedot  <br></br> <div className="info__user">Jos projekti liitty johonkin järjestelmään, kirjaa järjestelmän nimi ensimmäiseksi.</div><input type="text" name="kuvaus" size="40" value={this.state.data.kuvaus} onChange={this.handleInputChange} /></label>   
+                        <label htmlFor="kuvaus">Projektin lisätiedot  <br></br> <div className="info__user2">Jos projekti liitty johonkin järjestelmään, kirjoita järjestelmän nimi ensimmäiseksi.</div><input type="text" name="kuvaus" size="40" value={this.state.data.kuvaus} onChange={this.handleInputChange} /></label>   
                         </div>
                         </div>
                         <div className="projectform__row">
@@ -145,9 +153,9 @@ class ProjectForm extends React.Component {
                         </div>
                         </div>
                         <div>
-                        <Button type= "submit" primary >{this.state.data.id ? "Tallenna" : "Lisää"} </Button>
-                        
+                        <Button type= "submit" primary >{this.state.data.id ? "Tallenna" : "Lisää"} </Button>              
                         <Button onClick={this.handleCancel} secondary>Peruuta</Button>
+                         {this.props.onDeleteProject ? <Button onClick = {this.handleDeleteProject}>Poista</Button> :""}
                         </div>
                         </div>                            
                         </form>

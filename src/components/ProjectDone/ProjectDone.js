@@ -4,6 +4,7 @@ import React from 'react';
 
 
 
+
   
 function ProjectDone (props) {
 
@@ -33,9 +34,7 @@ function ProjectDone (props) {
           <div className="projectcard__row">{props.data.kuvaus}</div>   
           </div>
           <div className="projectcard__row">{props.data.valmiusaste}</div>
-          <div className="projectcard__row">{props.data.valmis}</div> 
-         
-          
+          <div className="projectcard__row">{props.data.valmis}</div>   
           </div>
       );
       }          

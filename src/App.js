@@ -20,9 +20,11 @@ class App extends Component {
           data: testdata
         }
        this.handleFormSubmit= this.handleFormSubmit.bind(this);
+       this.handleDeleteProject=this.handleDeleteProject.bind(this);
        this.handleList=this.handleList.bind(this);
        this.handleList2=this.handleList2.bind(this);
        this.handleList3=this.handleList3.bind(this);
+       this.handleCheckbox=this.handleCheckbox.bind(this);
       }
           /*projektien lisäys lomakkeella ja id:n tarkistus*/
           handleFormSubmit(newdata) {
@@ -45,13 +47,25 @@ class App extends Component {
               
             });
           }
+
+          /*projektin poistaminen*/
             
+           handleDeleteProject(id){
+            let storeddata = this.state.data.slice();
+            storeddata=storeddata.filter(project => project.id !== id);
+            this.setState({
+              data: storeddata
+              
+            });
+
+          }
+
             handleList() {
             let data= this.state.data.slice();
-            data.sort (function (a, b) {
-              if(a.valmiusaste>b.valmiusaste)
+            data.sort (function (Checkbox) {
+              if(Checkbox.checked === true)
               {return -1;}
-              if (a.valmiusaste<b.valmiusaste) 
+              if (Checkbox.checked === false) 
               {return 1;}   
               else {
                return 0; 
@@ -99,6 +113,18 @@ class App extends Component {
                 });
                 }
 
+                
+
+
+                handleCheckbox = (event) => {
+                  const target = event.target;
+                  const value = target.type === 'checkbox' ? target.checked : target.value;
+                  const name = target.name;
+                  
+                  this.setState({
+                    [name]: value
+                  });
+                }
                
               
                 
@@ -112,11 +138,11 @@ class App extends Component {
                   <Route path= "/" exact render= {() => <button onClick={this.handleList3} secondary> Järjestä: valmiina 0% -100% </button>}/>
                   <Route path = "/" exact render = { () => <button onClick={this.handleList2} secondary>Järjestä: Kuvauksen mukaan </button>}/>
                   </div>
-                  <Route path= "/" exact render = {()=><Projects data={this.state.data} />} />
-                  <Route path ="/stats" render= { () => <Projectstats/>} /> 
+                  <Route path= "/" exact render = {()=><Projects data={this.state.data} handleCheckbox={this.handleCheckbox} />} />
+                  <Route path ="/stats" render= { (props) => <Projectstats data={this.state.data} {...props}/>} /> 
                   <Route path= "/done" render = { (props) => <DoneProjects data={this.state.data}{...props} />} />
                   <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit} />} /> 
-                  <Route path= "/edit/:id" render = {(props) => <EditProject data={this.state.data}  onFormSubmit={this.handleFormSubmit} {...props} /> }/>
+                  <Route path= "/edit/:id" render = {(props) => <EditProject data={this.state.data}  onFormSubmit={this.handleFormSubmit} onDeleteProject={this.handleDeleteProject}{...props} /> }/>
                   <Menu/>
                   </div>
                   </Router>

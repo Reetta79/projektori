@@ -11,9 +11,6 @@ function Header() {
         <div>
         <h1>Projektori</h1>
         </div>
-        <div className="kuva">
-        <img src={TaustaKuva} alt=""></img>
-        </div>
         </div>
      
     );

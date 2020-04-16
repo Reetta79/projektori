@@ -21,6 +21,16 @@
 
     }
 
+    
+    .info__user2{
+      padding:0.5em;
+      font-weight: 600;
+      font-size: small;
+      color: red;
+
+    }
+
+
     .projectform input, .projectform select{
     display: flex;
     padding:1em;

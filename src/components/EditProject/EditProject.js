@@ -20,7 +20,7 @@ import './EditProject.css';
         <h2> Muokkaa projektin tietoja </h2>
 
        <p>Match:{index}</p>
-        <ProjectForm onFormSubmit = {props.onFormSubmit} data={projectData} />
+        <ProjectForm onFormSubmit = {props.onFormSubmit} data={projectData} onDeleteProject={props.onDeleteProject}/>
 
        
        
