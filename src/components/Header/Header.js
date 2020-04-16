@@ -2,7 +2,6 @@ import React from 'react';
 
 import './Header.css';
 
-import IMG_0616 from '../Images/IMG_0616.jpg';
 
 
 function Header() {

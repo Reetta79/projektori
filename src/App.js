@@ -9,7 +9,7 @@ import Projectstats from './components/Stats/Stast.js';
 import Projects from './components/Projects/Projects';
 import AddProject from './components/AddProject/AddProject';
 import EditProject from './components/EditProject/EditProject';
-import ProjectDone from './components/ProjectDone/ProjectDone';
+import DoneProjects from './components/DoneProject/DoneProject';
 
 
 
@@ -22,12 +22,8 @@ class App extends Component {
         super(props);
         this.state ={
           data: testdata
-         /* choises:    [{id:"1", value:"Uusi järjestelmä", isChecked:false},
-                      {id:"2", value:"Järjestelmän jatkokehitys", isChecked:false},
-                      {id:"3", value:"Prosessin kehitys", isChecked:false} checkbox-valinnat kesken*/
         }
        this.handleFormSubmit= this.handleFormSubmit.bind(this);
-       /*this.onClick=this.onClick.bind(this);*/
        this.handleList=this.handleList.bind(this);
        this.handleList2=this.handleList2.bind(this);
        this.handleList3=this.handleList3.bind(this);
@@ -54,17 +50,9 @@ class App extends Component {
             });
           }
             
-           /* onClick(projectId){
-            
-              if (this.state.done.valmiusaste === "Valmis") {
-              done.push(done);
-            }
-            this.setState({
-              data : done
-            }
-            );
-          }
-          */
+   
+
+          
 
               
          
@@ -139,9 +127,9 @@ class App extends Component {
                   </div>
                   <Route path= "/" exact render = {()=><Projects data={this.state.data} />} />
                   <Route path ="/stats" render= { () => <Projectstats/>} /> 
-                  <Route path= "/done" render = { () => <ProjectDone data={this.state.data} onClick={this.onClick} />} />
-                  <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit}  onClick={this.onClick}/>} /> 
-                  <Route path= "/edit/:id" render = {(props) => <EditProject data={this.state.data}  onFormSubmit={this.handleFormSubmit} onClick={this.onClick} {...props} /> }/>
+                  <Route path= "/done" render = { () => <DoneProjects data={this.state.data} />} />
+                  <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit} />} /> 
+                  <Route path= "/edit/:id" render = {(props) => <EditProject data={this.state.data}  onFormSubmit={this.handleFormSubmit} {...props} /> }/>
                   <Menu/>
                   </div>
                   </Router>

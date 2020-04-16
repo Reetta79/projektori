@@ -7,7 +7,10 @@ import { Link } from 'react-router-dom';
 
 
 
+
 function ProjectCard(props) {
+
+      
 
       let alkupvm = moment(props.data.alkupvm);
       let loppupvm = moment(props.data.loppupvm);
@@ -44,5 +47,7 @@ function ProjectCard(props) {
           </div>
     );
   }
+
+
 
   export default ProjectCard;

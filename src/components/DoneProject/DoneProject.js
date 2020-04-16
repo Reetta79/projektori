@@ -1,4 +1,4 @@
-/*import React from 'react';
+import React from 'react';
 
 import Content from '../Content/Content';
 import ProjectDone from '../ProjectDone/ProjectDone';
@@ -6,15 +6,14 @@ import ProjectDone from '../ProjectDone/ProjectDone';
 
 function DoneProjects(props) {
     
-    let rows = props.data.filter(card => {
-   
-
-      return (
+    let dones = props.data.filter (project => 
+         project.valmiusaste === "Valmis");
+       
+ 
+      let rows=dones.map (card=>
         <ProjectDone data={card} key={card.id}/>
       );
-    }
-  );
-  
+    
 
     return(
       <Content>
@@ -22,4 +21,6 @@ function DoneProjects(props) {
       </Content>
     );
   }
- */
+
+  export default DoneProjects;
+ 
