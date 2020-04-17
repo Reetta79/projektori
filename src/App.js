@@ -10,6 +10,8 @@ import Projects from './components/Projects/Projects';
 import AddProject from './components/AddProject/AddProject';
 import EditProject from './components/EditProject/EditProject';
 import DoneProjects from './components/DoneProject/DoneProject';
+import DoneHalf from './components/DoneHalf/DoneHalf';
+import DoneOverHalf from './components/DoneOverHalf/DoneOverHalf';
 
 
 class App extends Component {
@@ -24,10 +26,10 @@ class App extends Component {
        this.handleList=this.handleList.bind(this);
        this.handleList2=this.handleList2.bind(this);
        this.handleList3=this.handleList3.bind(this);
-       this.handleCheckbox=this.handleCheckbox.bind(this);
       }
           /*projektien lisäys lomakkeella ja id:n tarkistus*/
           handleFormSubmit(newdata) {
+            
 
             let storeddata = this.state.data.slice();
             const index = storeddata.findIndex (project => project.id === newdata.id);
@@ -57,11 +59,12 @@ class App extends Component {
               data: storeddata
               
             });
-
           }
 
+            
+
             handleList() {
-            let data= this.state.data.slice();
+            let data= this.state.data.Checkbox();
             data.sort (function (Checkbox) {
               if(Checkbox.checked === true)
               {return -1;}
@@ -114,17 +117,12 @@ class App extends Component {
                 }
 
                 
+                
+          
 
-
-                handleCheckbox = (event) => {
-                  const target = event.target;
-                  const value = target.type === 'checkbox' ? target.checked : target.value;
-                  const name = target.name;
-                  
-                  this.setState({
-                    [name]: value
-                  });
-                }
+                
+                 
+                
                
               
                 
@@ -138,8 +136,9 @@ class App extends Component {
                   <Route path= "/" exact render= {() => <button onClick={this.handleList3} secondary> Järjestä: valmiina 0% -100% </button>}/>
                   <Route path = "/" exact render = { () => <button onClick={this.handleList2} secondary>Järjestä: Kuvauksen mukaan </button>}/>
                   </div>
-                  <Route path= "/" exact render = {()=><Projects data={this.state.data} handleCheckbox={this.handleCheckbox} />} />
-                  <Route path ="/stats" render= { (props) => <Projectstats data={this.state.data} {...props}/>} /> 
+                  <Route path= "/" exact render = {()=><Projects data={this.state.data} />} />
+                  <Route path ="/done" render= { () => <DoneHalf data={this.state.data} />} /> 
+                  <Route path ="/done" render= { () => <DoneOverHalf data={this.state.data} />} /> 
                   <Route path= "/done" render = { (props) => <DoneProjects data={this.state.data}{...props} />} />
                   <Route path= "/add" render = { () => <AddProject onFormSubmit={this.handleFormSubmit} />} /> 
                   <Route path= "/edit/:id" render = {(props) => <EditProject data={this.state.data}  onFormSubmit={this.handleFormSubmit} onDeleteProject={this.handleDeleteProject}{...props} /> }/>

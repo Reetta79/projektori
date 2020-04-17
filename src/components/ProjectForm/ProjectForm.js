@@ -65,9 +65,7 @@ class ProjectForm extends React.Component {
                 this.props.onFormSubmit(data);
                 this.props.history.push("/");
             
-            }
-         
-            
+            }  
         
                
                 /*peruuta nappi palauttaa etusivulle*/

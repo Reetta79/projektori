@@ -15,7 +15,6 @@ function ProjectCard(props) {
 
       let alkupvm = moment(props.data.alkupvm);
       let loppupvm = moment(props.data.loppupvm);
-  
 
       return(
       <div className="projectcard" key={props.data.id}>
@@ -42,11 +41,11 @@ function ProjectCard(props) {
           <h4>Valmis % </h4>
           <div className="projectcard__row">{props.data.valmiusaste}</div>   
           </div>
+          <div className="projectcard__row">
           <div>
           <p><Link to={"/edit/" + props.data.id}><label>Muokkaa</label> </Link> </p>
+            Keskeytetty <Checkbox type="checkboxl" size="small" inputProps={{ 'aria-label': 'checkbox with small size' }}/>    
           </div>
-          <div>
-          Keskeytetty <Checkbox  size="small" inputProps={{ 'aria-label': 'checkbox with small size' }}/>    
           </div>
           </div>
           

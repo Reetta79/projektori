@@ -1,8 +1,8 @@
-import React from 'react';
+/*import React from 'react';
 
 
 import Content from '../Content/Content';
-import StatsCheck from '../StatsCheck/StatsCheck';
+
 
 import './Stats.css';
 
@@ -12,11 +12,13 @@ let half = props.data.filter(project => project.valmiusaste < "50")
 
   let rows = half.map (card=>
 
-    <StatsCheck data={card} key={card.id}/>
+    < data={card} key={card.id}/>
   );
     return (
       <Content>
-        
+            
+       <h3>Valmiina alle puolet</h3>
+
         {rows}
         
         
@@ -25,4 +27,4 @@ let half = props.data.filter(project => project.valmiusaste < "50")
     );
   }
 
-  export default Projectstats;
+  export default Projectstats;*/
