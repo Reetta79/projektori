@@ -24,6 +24,7 @@ class App extends Component {
        this.handleFormSubmit= this.handleFormSubmit.bind(this);
        this.handleDeleteProject=this.handleDeleteProject.bind(this);
        this.handleList=this.handleList.bind(this);
+       this.handleList4=this.handleList4.bind(this);
        this.handleList2=this.handleList2.bind(this);
        this.handleList3=this.handleList3.bind(this);
       }
@@ -56,29 +57,21 @@ class App extends Component {
             let storeddata = this.state.data.slice();
             storeddata=storeddata.filter(project => project.id !== id);
             this.setState({
-              data: storeddata
-              
+              data: storeddata         
             });
           }
 
             
-
-            handleList() {
-            let data= this.state.data.Checkbox();
-            data.sort (function (Checkbox) {
-              if(Checkbox.checked === true)
-              {return -1;}
-              if (Checkbox.checked === false) 
-              {return 1;}   
-              else {
-               return 0; 
-              }
-            });
+          handleList() {
+            let storeddata = this.state.data.slice();
+            storeddata=storeddata.filter(project => project.budjetti === "Ei");
             this.setState({
-              data: data
-              
+              data: storeddata         
             });
+            
             }
+          
+          
             
             
             handleList2() {
@@ -114,16 +107,17 @@ class App extends Component {
                   data: data
                   
                 });
-                }
-
-                
-                
-          
-
-                
-                 
-                
+                }               
                
+
+                handleList4() {
+                  let storeddata = this.state.data.slice();
+                  storeddata=storeddata.filter(project => project.valmiusaste <= "90");
+                  this.setState({
+                    data: storeddata         
+                  });
+                  
+                  }
               
                 
             render () {
@@ -132,7 +126,8 @@ class App extends Component {
                   <div className="App">
                   <Header  />
                   <div className="Nappi">
-                  <Route path= "/" exact render= {() => <button onClick={this.handleList} secondary> Järjestä: valmiit ensin </button>} />
+                  <Route path= "/" exact render= {() => <button onClick={this.handleList} secondary> Projektit, joilla ei budjettia </button>} />
+                  <Route path= "/" exact render= {() => <button onClick={this.handleList4} secondary> Piilota valmiit </button>} />
                   <Route path= "/" exact render= {() => <button onClick={this.handleList3} secondary> Järjestä: valmiina 0% -100% </button>}/>
                   <Route path = "/" exact render = { () => <button onClick={this.handleList2} secondary>Järjestä: Kuvauksen mukaan </button>}/>
                   </div>

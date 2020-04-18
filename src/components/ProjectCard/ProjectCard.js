@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import './ProjectCard.css';
 import { Link } from 'react-router-dom';
-import { Checkbox } from '@material-ui/core';
+import {Checkbox} from '@material-ui/core';
 
 
 
@@ -43,9 +43,10 @@ function ProjectCard(props) {
           </div>
           <div className="projectcard__row">
           <div>
-          <p><Link to={"/edit/" + props.data.id}><label>Muokkaa</label> </Link> </p>
-            Keskeytetty <Checkbox type="checkboxl" size="small" inputProps={{ 'aria-label': 'checkbox with small size' }}/>    
+          <p><Link to={"/edit/" + props.data.id}><label>Muokkaa</label> </Link> </p>  
           </div>
+          <div className="projectcard__row"> 
+          <label> <Checkbox inputProps={{ 'aria-label': 'primary checkbox with small size' }}/>Keskeytetty </label></div>
           </div>
           </div>
           
