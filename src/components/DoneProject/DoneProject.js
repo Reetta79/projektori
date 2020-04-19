@@ -12,7 +12,7 @@ function DoneProjects(props) {
     
     let dones = props.data.filter (project => 
          project.valmiusaste === "Valmis");
-         
+         let amount3=(dones.length); 
       
  
       let rows=dones.map (card=>
@@ -23,11 +23,12 @@ function DoneProjects(props) {
     return(
       <Content>
         <div className="otsikko3">
-        <h3>Valmiit</h3>
+        <div className="otsikko3__teksti">
+        <div><h4> Valmiit</h4> <h5>Määrä: {amount3}</h5></div></div>
         </div>
-
+        
          {rows}
-
+        
       </Content>
     );
   }

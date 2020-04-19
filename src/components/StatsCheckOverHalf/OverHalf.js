@@ -1,8 +1,11 @@
 import React from 'react';
+import moment from 'moment';
 
+import './StatsCheckOverHalf.css';
 
 function OverHalf (props) {    
 
+    let loppupvm = moment(props.data.loppupvm);
 
     return(
      
@@ -14,7 +17,7 @@ function OverHalf (props) {
     </div>
     <div className="projectcard__row"> 
     <div>Päättyy </div>
-    <div className="projectcard__loppupvm">{props.data.loppupvm}</div>
+    <div className="projectcard__loppupvm">{loppupvm.format("D.M.Y")}</div>
     </div>
     <div className="projectcard__row"> 
     <div className="projectcard__kuvaus">{props.data.kuvaus}</div>

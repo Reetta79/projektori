@@ -66,7 +66,7 @@ class App extends Component {
             let storeddata = this.state.data.slice();
             storeddata=storeddata.filter(project => project.budjetti === "Ei");
             this.setState({
-              data: storeddata         
+              data: storeddata   
             });
             
             }

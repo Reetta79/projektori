@@ -9,15 +9,15 @@ import StatsCheckHalf from '../StatsCheckHalf/StatsCheckHalf';
 function DoneHalf(props) {
 
 let half = props.data.filter(project => project.valmiusaste <= "50")
-
+let amount=(half.length);
   let rows = half.map (card=>
 
-    <StatsCheckHalf data={card} key={card.id}/>
+    <StatsCheckHalf data={card} key={card.id} luku={amount}/>
   );
     return (
       <Content>
          <div className="otsikko">  
-       <h3>Valmiina alle puolet</h3>
+       <h4>Valmiina alle puolet</h4><h5>Määrä: {amount}</h5>
        </div> 
         {rows}   
         

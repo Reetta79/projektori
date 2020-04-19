@@ -1,10 +1,11 @@
 import React from 'react';
+import moment from 'moment';
 
 import './StatsCheck.css'
 
 function StatsCheckHalf (props) {    
 
-
+    let loppupvm = moment(props.data.loppupvm);
     return(
      
     <div>
@@ -15,7 +16,7 @@ function StatsCheckHalf (props) {
     </div>
     <div className="projectcard__row"> 
     <div>Päättyy </div>
-    <div className="projectcard__loppupvm">{props.data.loppupvm}</div>
+    <div className="projectcard__loppupvm">{loppupvm.format("D.M.Y")}</div>
     </div>
     <div className="projectcard__row"> 
     <div className="projectcard__kuvaus">{props.data.kuvaus}</div>

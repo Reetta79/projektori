@@ -1,7 +1,13 @@
 .otsikko3{
-    color: #59ff2f;
-    text-shadow: -1px 0 black, 0 0.5px black, 0.5px 0 black, 0 -1px black;
-    letter-spacing: 0.2em;
-    
-    
+    background-color: rgb(46, 195, 46);
 }
+ .otsikko3__teksti{
+    color:rgba(0, 0, 0, 0.747);
+    letter-spacing: 0.2em;
+    font-weight: bold;
+ }
+
+
+
+
+

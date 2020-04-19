@@ -8,16 +8,17 @@ import './DoneOverHalf.css';
 
 function DoneOverHalf(props) {
 
-let half = props.data.filter(project => project.valmiusaste > "50" && project.valmiusaste <= "90")
+let overhalf = props.data.filter(project => project.valmiusaste > "50" && project.valmiusaste <= "90")
+let amount2=(overhalf.length);
 
-  let rows = half.map (card=>
+  let rows = overhalf.map (card=>
 
     <OverHalf data={card} key={card.id}/>
   );
     return (
       <Content>
             <div className="otsikko2"> 
-       <h3>Valmiina yli puolet</h3>
+       <h4>Valmiina yli puolet</h4> <h5>Määrä: {amount2}</h5>
             </div>
         {rows}   
         

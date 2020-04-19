@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 
 
 import { v4 as uuidv4 } from 'uuid';
-import Checkbox from '@material-ui/core/Checkbox';
+
 
 import './ProjectForm.css';
 

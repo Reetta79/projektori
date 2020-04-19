@@ -1,13 +1,10 @@
 .projectcard {
-    padding: 1em;
-    border-bottom: 1 px solid #BADDFE;
-  }
-  
-  .projectcard__row {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .projectcard__tyyppi {
-    font-weight: 700;
-    }
+  padding: 1em;
+  border-bottom: 1 px solid #BADDFE;
+}
+
+.projectcard__row {
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
+}
