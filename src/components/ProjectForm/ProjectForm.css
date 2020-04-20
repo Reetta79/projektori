@@ -7,7 +7,7 @@
     }
 
     .projectform__row {
-      padding:0.5em;
+     
       font-weight: 700;
       display: flex;
       flex: 1 1 auto;
@@ -28,6 +28,8 @@
       font-weight: 600;
       font-size: small;
       color: blue;
+      display: inline-flex;
+      width: 100%;
 
     }
 
@@ -45,10 +47,30 @@
     padding: 0.5em;  
     border: 1 px skyblue;
     box-sizing: border-box;
+    display: inline-block;
+
     outline:none;
-    width:100%;
+    justify-content: left;
     justify-items: center;
-    justify-self: center;
     }
 
+
+    .projectform input [type="kuvaus"]{
+     
+      width:100%;
+    
+    }
+
+    projectform input [type="budjetti"]{
+     
+      display: flexbox;
+    
+    }
+
+    projectform input [type="valmiusaste"]{
+     
+      display: flexbox;
+      justify-content: left;
+      justify-items: left;
+    }
     
