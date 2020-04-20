@@ -110,40 +110,40 @@ class ProjectForm extends React.Component {
                         </select>
                         </div>
                         </div>
-
                         <div className="projectform__row">
                         <div>
-                        <label htmlFor="alkupvm">Aloituspäivä <br></br> <div className="info__user">Jos projekti tai tehtävä on jo aloitettu, valitse alkuperäinen aloituspäivämäärä.</div></label><input  type="date" name="alkupvm" value={this.state.data.alkupvm} onChange={this.handleInputChange}/>
+                        <label htmlFor="alkupvm">Aloituspäivä <br></br></label><div className="info__user">Jos projekti on jo aloitettu, valitse alkuperäinen aloituspäivämäärä.</div><input  type="date" name="alkupvm" value={this.state.data.alkupvm} onChange={this.handleInputChange} size="10"/>
                         </div>
                         <div>
-                        <label htmlFor="loppupvm">Päättymispäivä <br></br></label><div className="info__user">Valitse arvioitu päättymispäivä, jos sitä ei ole määritelty.</div>   <input type="date" name="loppupvm" value={this.state.data.loppupvm} onChange={this.handleInputChange} /> 
-                        </div>
-                        </div>
-                        <div className="projectform__row">
-                        <div>
-                        <label htmlFor="kuvaus">Projektin lisätiedot <br></br><div className="info__user2">Jos projekti liittyy johonkin järjestelmään, kirjoita järjestelmän nimi ensimmäiseksi.</div></label><input type="text" name="kuvaus" size="40" value={this.state.data.kuvaus} onChange={this.handleInputChange} />   
+                        <label htmlFor="loppupvm">Päättymispäivä <br></br></label><div className="info__user">Valitse arvioitu päättymispäivä, jos sitä ei ole määritelty.</div>   <input type="date" name="loppupvm" value={this.state.data.loppupvm} onChange={this.handleInputChange} size="10"/> 
                         </div>
                         </div>
                         <div className="projectform__row">
                         <div>
-                        <label htmlFor="budjetti" >Budjetoitu  <br></br></label><div className="info__user">Valitse "Kyllä" vain siinä tapauksessa, jos budjetti on jo hyväksytty.</div>
+                        <label htmlFor="kuvaus">Projektin lisätiedot <br></br></label><input rows="3" cols="40" placeholder="Kirjoita järjestelmän nimi alkuun, jos projekti liittyy sellaiseen." type="text" name="kuvaus" size="40" value={this.state.data.kuvaus} onChange={this.handleInputChange} />   
+                        </div>
+                        </div>
+                        <div className="projectform__row">
+                        <div>
+                        <label htmlFor="budjetti" >Budjetoitu  <br></br></label><div className="info__user">Valitse "Kyllä" vain siinä tapauksessa, että budjetti on jo hyväksytty.</div>
                         <div>
                         <select name = "budjetti" value={this.state.data.budjetti} onChange={this.handleInputChange}>
                                 <option value= "Kyllä">Kyllä</option>
                                 <option value= "Ei">Ei</option>
                         </select>
                         <div>
-                        <label htmlFor="summa">Määrä </label><input type="number" name="summa" value={this.state.data.summa} onChange={this.handleInputChange} />
+                        <label htmlFor="summa">Summa</label><input type="number" name="summa" value={this.state.data.summa} onChange={this.handleInputChange} />
                         </div>
                         </div>
-    
                         </div>
                         </div>
                         <div className="projectform__row">
                         <div>
-                        <label htmlFor="name" >Valmiusaste  <br></br> <div className="info__user">Kokonaisvalmiusaste prosentteina.</div> </label>
+                        <label htmlFor="name" >Valmiusaste (prosenttia) <br></br> </label>
+                        <div>
                         <select type= "text" name = "valmiusaste"  value={this.state.data.valmiusaste} onChange={this.handleInputChange} >
-                                <option value= ""></option>
+             
+                                <option value=""></option>
                                 <option value= "10" >10</option>
                                 <option value= "20">20</option>
                                 <option value= "30">30</option>
@@ -157,6 +157,8 @@ class ProjectForm extends React.Component {
                         </select>
                         </div>
                         </div>
+                        </div>
+                        
                         <div>
                         <Button type= "submit" primary >{this.state.data.id ? "Tallenna" : "Lisää"} </Button>              
                         <Button onClick={this.handleCancel} secondary>Peruuta</Button>
