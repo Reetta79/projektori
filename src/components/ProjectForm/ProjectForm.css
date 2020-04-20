@@ -4,13 +4,23 @@
 .projectform{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     }
 
     .projectform__row {
-      padding: 0.5em;
+      padding:0.5em;
       font-weight: 700;
+      display: flex;
+      flex: 1 1 auto;
 
+    }
+
+    .projectform__row > div{
+      display: flex;
+      flex-direction: column;
+      justify-content: right;
+      font-weight: 700;
+      margin: 0.5em 0.3em;
+      flex: 1 1 auto;
     }
     
     .info__user{
@@ -32,13 +42,13 @@
 
 
     .projectform input, .projectform select{
-    display: flex;
-    padding:0.5em;
+    padding: 0.5em;  
+    border: 1 px skyblue;
+    box-sizing: border-box;
+    outline:none;
+    width:100%;
     justify-items: center;
     justify-self: center;
-    justify-content: space-evenly;
     }
 
-    .projectform > * {
-        flex: 1 1 auto;
-      }
+    

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+/*import React, { Component } from 'react'
 
 import Projects from '../Projects/Projects';
 
@@ -34,4 +34,4 @@ class VisibleProjects extends Component {
   }
 }
 
-export default VisibleProjects;
+export default VisibleProjects;*/

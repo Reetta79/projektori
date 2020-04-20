@@ -1,0 +1,52 @@
+.projectform__row input [type="date"] ::-webkit-clear-button {
+    display: none;
+}
+
+.projectform__row input [type="date"] ::-webkit-spin-button {
+    display: none;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Muli:200,400,700');
+
+
+.projectform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    }
+
+    .projectform__row {
+      padding: 0.5em;
+      font-weight: 700;
+
+    }
+    
+    .info__user{
+      padding:0.5em;
+      font-weight: 600;
+      font-size: small;
+      color: blue;
+
+    }
+
+    
+    .info__user2{
+      padding:0.5em;
+      font-weight: 600;
+      font-size: small;
+      color: red;
+
+    }
+
+
+    .projectform input, .projectform select{
+    display: flex;
+    padding:0.5em;
+    justify-items: center;
+    justify-self: center;
+    justify-content: space-evenly;
+    }
+
+    .projectform > * {
+        flex: 1 1 auto;
+      }

@@ -45,6 +45,9 @@ class ProjectForm extends React.Component {
 
            handleInputChange (event) {
                const target = event.target;
+                console.log(event.target.type) // Use this to compare the type.
+                if ( event.target.type ==='number' ) {// Your case }
+             }
                const value = target.type === 'checkbox' ? target.checked : target.value;
                const name = target.name;
 
@@ -62,6 +65,7 @@ class ProjectForm extends React.Component {
             handleSubmit(event){
                 event.preventDefault();
                 let data= Object.assign({}, this.state.data);
+                data.summa=parseInt(data.summa);
                 data.id= data.id ? data.id : uuidv4();
                 this.props.onFormSubmit(data);
                 this.props.history.push("/");
@@ -96,7 +100,7 @@ class ProjectForm extends React.Component {
                         </div>
                         <div className="projectform__row">
                         <div>
-                        <label htmlFor="name" > Valitse tyyppi <br></br><div className="info__user"> Jokainen projekti ja kehitystehtävä kirjataan omana projektina. Älä siis sisällytä toiseen projektiin liittyvää tehtävää toiseen.</div> </label>
+                        <label htmlFor="name" >Valitse tyyppi <br></br><div className="info__user"> Jokainen projekti ja kehitystehtävä kirjataan omana projektina. Älä siis sisällytä toiseen projektiin liittyvää tehtävää toiseen.</div> </label>
                         
                         <select type="text" name = "tyyppi"  value={this.state.data.tyyppi} onChange={this.handleInputChange}>
                                 <option value=""></option>
@@ -109,37 +113,35 @@ class ProjectForm extends React.Component {
 
                         <div className="projectform__row">
                         <div>
-                        <label htmlFor="alkupvm">Aloituspäivä <br></br> <div className="info__user">Jos projekti tai tehtävä on jo aloitettu, valitse alkuperäinen aloituspäivämäärä.</div><input  type="date" name="alkupvm" value={this.state.data.alkupvm} onChange={this.handleInputChange}/></label>
+                        <label htmlFor="alkupvm">Aloituspäivä <br></br> <div className="info__user">Jos projekti tai tehtävä on jo aloitettu, valitse alkuperäinen aloituspäivämäärä.</div></label><input  type="date" name="alkupvm" value={this.state.data.alkupvm} onChange={this.handleInputChange}/>
+                        </div>
+                        <div>
+                        <label htmlFor="loppupvm">Päättymispäivä <br></br></label><div className="info__user">Valitse arvioitu päättymispäivä, jos sitä ei ole määritelty.</div>   <input type="date" name="loppupvm" value={this.state.data.loppupvm} onChange={this.handleInputChange} /> 
                         </div>
                         </div>
                         <div className="projectform__row">
                         <div>
-                        <label htmlFor="loppupvm">Päättymispäivä (arvioitu) <br></br><div className="info__user">Valitse arvioitu päättymispäivä, jos sitä ei ole määritelty.</div> <input type="date" name="loppupvm" value={this.state.data.loppupvm} onChange={this.handleInputChange} /></label>   
-                        
+                        <label htmlFor="kuvaus">Projektin lisätiedot <br></br><div className="info__user2">Jos projekti liittyy johonkin järjestelmään, kirjoita järjestelmän nimi ensimmäiseksi.</div></label><input type="text" name="kuvaus" size="40" value={this.state.data.kuvaus} onChange={this.handleInputChange} />   
                         </div>
                         </div>
                         <div className="projectform__row">
                         <div>
-                        <label htmlFor="kuvaus">Projektin lisätiedot  <br></br> <div className="info__user2">Jos projekti liitty johonkin järjestelmään, kirjoita järjestelmän nimi ensimmäiseksi.</div><input type="text" name="kuvaus" size="40" value={this.state.data.kuvaus} onChange={this.handleInputChange} /></label>   
-                        </div>
-                        </div>
-                        <div className="projectform__row">
-                        <div>
-                        <label htmlFor="budjetti" >  Budjetoitu  <br></br><div className="info__user">Valitse "Kyllä" vain siinä tapauksessa, jos budjetti on jo hyväksytty.</div></label>
+                        <label htmlFor="budjetti" >Budjetoitu  <br></br></label><div className="info__user">Valitse "Kyllä" vain siinä tapauksessa, jos budjetti on jo hyväksytty.</div>
                         <div>
                         <select name = "budjetti" value={this.state.data.budjetti} onChange={this.handleInputChange}>
-                                <option value= ""></option>
                                 <option value= "Kyllä">Kyllä</option>
                                 <option value= "Ei">Ei</option>
                         </select>
-                        <label htmlFor="summa"> Määrä <input type="number" name="summa" value={this.state.data.summa} onChange={this.handleInputChange} /></label>
+                        <div>
+                        <label htmlFor="summa">Määrä </label><input type="number" name="summa" value={this.state.data.summa} onChange={this.handleInputChange} />
+                        </div>
                         </div>
     
                         </div>
                         </div>
                         <div className="projectform__row">
                         <div>
-                        <label htmlFor="name" > Valmiusaste  <br></br> <div className="info__user">Kokonaisvalmiusaste prosentteina.</div> </label>
+                        <label htmlFor="name" >Valmiusaste  <br></br> <div className="info__user">Kokonaisvalmiusaste prosentteina.</div> </label>
                         <select type= "text" name = "valmiusaste"  value={this.state.data.valmiusaste} onChange={this.handleInputChange} >
                                 <option value= ""></option>
                                 <option value= "10" >10</option>

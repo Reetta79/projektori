@@ -2,8 +2,6 @@ import React from 'react';
 
 import './Header.css';
 
-import TaustaKuva from '../Images/TaustaKuva.png';
-
 function Header() {
     return(
      

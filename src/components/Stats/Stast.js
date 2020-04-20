@@ -11,7 +11,7 @@ import './Stats.css';
   const reducer = (groupedData,currentProject) => {
     const index = groupedData.findIndex (project => project.tyyppi === currentProject.tyyppi);
     if (index >= 0){
-      groupedData[index].summa = groupedData[index].summa + currentProject.summa;
+      groupedData[index].loppupvm = groupedData[index].summa + currentProject.summa;
     }else{
       groupedData.push({tyyppi: currentProject.tyyppi, summa:currentProject.summa});
     }
@@ -31,7 +31,6 @@ import './Stats.css';
       
   }
 
-  
 
 
     return (
@@ -45,6 +44,7 @@ import './Stats.css';
         
       </Content>
     );
-  }
+    }
+
 
   export default Stats; 
