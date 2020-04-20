@@ -27,6 +27,7 @@ class ProjectForm extends React.Component {
                 loppupvm: "",
                 kuvaus:"",
                 budjetti:"",
+                summa:"",
                 valmiusaste:""
                 }
                 this.state={
@@ -125,11 +126,15 @@ class ProjectForm extends React.Component {
                         <div className="projectform__row">
                         <div>
                         <label htmlFor="budjetti" >  Budjetoitu  <br></br><div className="info__user">Valitse "Kyllä" vain siinä tapauksessa, jos budjetti on jo hyväksytty.</div></label>
+                        <div>
                         <select name = "budjetti" value={this.state.data.budjetti} onChange={this.handleInputChange}>
                                 <option value= ""></option>
                                 <option value= "Kyllä">Kyllä</option>
                                 <option value= "Ei">Ei</option>
                         </select>
+                        <label htmlFor="summa"> Määrä <input type="number" name="summa" value={this.state.data.summa} onChange={this.handleInputChange} /></label>
+                        </div>
+    
                         </div>
                         </div>
                         <div className="projectform__row">

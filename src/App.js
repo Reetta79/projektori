@@ -5,7 +5,7 @@ import './App.css';
 import testdata from '../src/testdata';
 import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
-import Projectstats from './components/Stats/Stast.js';
+import Stats from './components/Stats/Stast.js';
 import Projects from './components/Projects/Projects';
 import AddProject from './components/AddProject/AddProject';
 import EditProject from './components/EditProject/EditProject';
@@ -77,9 +77,9 @@ class App extends Component {
             handleList2() {
               let data= this.state.data.slice();
               data.sort (function (a, b) {
-                if(a.kuvaus>b.kuvaus)
+                if(a.kuvaus<b.kuvaus)
                 {return -1;}
-                if (a.kuvaus<b.kuvaus) 
+                if (a.kuvaus>b.kuvaus) 
                 {return 1;}   
                 else {
                  return 0; 
@@ -131,6 +131,7 @@ class App extends Component {
                   <Route path= "/" exact render= {() => <button onClick={this.handleList3} secondary> Järjestä: valmiina 0% -100% </button>}/>
                   <Route path = "/" exact render = { () => <button onClick={this.handleList2} secondary>Järjestä: Kuvauksen mukaan </button>}/>
                   </div>
+                  <Route path= "/stats" render = {()=><Stats data={this.state.data} />} />
                   <Route path= "/" exact render = {()=><Projects data={this.state.data} />} />
                   <Route path ="/done" render= { () => <DoneHalf data={this.state.data} />} /> 
                   <Route path ="/done" render= { () => <DoneOverHalf data={this.state.data} />} /> 

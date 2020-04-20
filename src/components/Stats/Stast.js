@@ -1,30 +1,50 @@
-/*import React from 'react';
+import React from 'react';
 
+import { Doughnut } from 'react-chartjs-2';
 
 import Content from '../Content/Content';
 
-
 import './Stats.css';
 
- function Projectstats(props) {
+ function Stats(props) {
 
-let half = props.data.filter(project => project.valmiusaste < "50")
+  const reducer = (groupedData,currentProject) => {
+    const index = groupedData.findIndex (project => project.tyyppi === currentProject.tyyppi);
+    if (index >= 0){
+      groupedData[index].summa = groupedData[index].summa + currentProject.summa;
+    }else{
+      groupedData.push({tyyppi: currentProject.tyyppi, summa:currentProject.summa});
+    }
+    return groupedData;
+  }
 
-  let rows = half.map (card=>
+  let groupedData= props.data.reduce(reducer,[]);
 
-    < data={card} key={card.id}/>
-  );
+  let doughnutData ={
+    labels: groupedData.map(project => project.tyyppi),
+    datasets: 
+        [
+          {
+         data:groupedData.map(project => project.summa)
+          }
+        ]
+      
+  }
+
+  
+
+
     return (
       <Content>
             
-       <h3>Valmiina alle puolet</h3>
-
-        {rows}
-        
+      <h2> Tilastot </h2>
+        <div className= 'stats__graph'>
+         <Doughnut data={doughnutData}/>
+        </div>
         
         
       </Content>
     );
   }
 
-  export default Projectstats;*/
+  export default Stats; 

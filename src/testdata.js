@@ -7,16 +7,18 @@ const testdata = [
         loppupvm: '2019-03-28',
         kuvaus:"Projektinhallinta",
         budjetti:"Kyllä",
+        summa:"800000.00",
         valmiusaste:"Valmis",
         
       },
       {
         id: '2',
         tyyppi:"Järjestelmän jatkokehitys",
-        alkupvm: '2019-03-202',
+        alkupvm: '2019-03-20',
         loppupvm: '2020-06-20',
         kuvaus:"Liittymän muutos Xenaan",
         budjetti:"Kyllä",
+        summa:"37500.00",
         valmiusaste: "20",
         
       },
@@ -27,7 +29,42 @@ const testdata = [
         loppupvm: '2020-09-20',
         kuvaus:"Laskun hyväksyntäprosessi",
         budjetti:"Ei",
-        valmiusaste:"0",
+        summa:"",
+        valmiusaste:"70",
+        
+      },
+
+      {
+        id: '4',
+        tyyppi:"Uusi järjestelmä",
+        alkupvm: '2020-03-20',
+        loppupvm: '2020-10-20',
+        kuvaus:"Oili: Maksuliikenteen pilvisiirto",
+        budjetti:"Kyllä",
+        summa:"60000.00",
+        valmiusaste:"50",
+        
+      },
+      {
+        id: '5',
+        tyyppi:"Järjestelmän jatkokehitys",
+        alkupvm: '2019-06-10',
+        loppupvm: '2020-10-20',
+        kuvaus:"Oili: Xenan lopputestaus reaaliaineiston kokoisilla XML-tiedostoilla.",
+        budjetti:"Kyllä",
+        summa:"4200.00",
+        valmiusaste: "10",
+        
+      },
+      {
+        id: '6',
+        tyyppi:"Prosessin kehitys",
+        alkupvm: '2020-08-20',
+        loppupvm: '2020-10-20',
+        kuvaus:"Oili: Pääkäyttäjien koulutus",
+        budjetti:"Ei",
+        summa:"",
+        valmiusaste:"",
         
       }
     
