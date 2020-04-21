@@ -8,69 +8,57 @@
 
     .projectform__row {
      
-      font-weight: 700;
       display: flex;
       flex: 1 1 auto;
 
     }
 
+    .projectform label {
+      font-weight: 700;
+      padding-bottom: 0.5em;
+      justify-content: left;
+    }
+
     .projectform__row > div{
       display: flex;
       flex-direction: column;
-      justify-content: right;
+      justify-content:center;
       font-weight: 700;
       margin: 0.5em 0.3em;
       flex: 1 1 auto;
     }
     
     .info__user{
-      padding:0.5em;
-      font-weight: 600;
+      padding-bottom:0.5em;
+      font-weight: 500;
       font-size: small;
       color: blue;
-      display: inline-flex;
+      display:flex;
       width: 100%;
 
     }
 
-    
-    .info__user2{
-      padding:0.5em;
-      font-weight: 600;
-      font-size: small;
-      color: red;
 
-    }
-
-
-    .projectform input, .projectform select{
+  .projectform select{
     padding: 0.5em;  
     border: 1 px skyblue;
     box-sizing: border-box;
     display: inline-block;
-
     outline:none;
-    justify-content: left;
+    justify-content: center;
     justify-items: center;
     }
 
-
-    .projectform input [type="kuvaus"]{
-     
-      width:100%;
     
-    }
-
     projectform input [type="budjetti"]{
      
       display: flexbox;
     
     }
-
-    projectform input [type="valmiusaste"]{
-     
-      display: flexbox;
-      justify-content: left;
-      justify-items: left;
-    }
     
+    .projectform__row input [type="date"]::-webkit-clear-button{
+      display: none;
+    }
+    .projectform__row input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+  }

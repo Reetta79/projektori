@@ -3,18 +3,11 @@ import moment from'moment';
 
 function ProjectDone (props) {
 
-   /*tähän pitäisi sitoa id:n mukainen aikaleima, joka tulee, kun valmiusaste === "Valmis" tallennetaan*/
-    let valmis= props.data.valmiusaste;
-    if (valmis==="Valmis"){
-        valmis=Date(Date.now());
-        valmis.toString();
-    }else{
-        valmis=""
-    };
     
 
             let loppupvm = moment(props.data.loppupvm);
-            let alkupvm =moment (props.data.alkupvmalkupvm);
+            let alkupvm =moment (props.data.alkupvm);
+            let valmis = moment (props.data.valmis);
           return(
           <div>
           <div className="projectcard" key ={props.data.id}></div>
@@ -32,7 +25,7 @@ function ProjectDone (props) {
           <div className="projectcard__row">{props.data.kuvaus}</div>   
           </div>
           <div className="projectcard__row">{props.data.valmiusaste}</div>
-          <div className="projectcard__row">{valmis}</div>   
+          <div className="projectcard__row">{valmis.format("D.M.Y")}</div>   
           </div>
       );
       }          
