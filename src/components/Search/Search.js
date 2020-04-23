@@ -1,37 +1,52 @@
-/*import React, { Component } from 'react'
+/*import React from 'react';
+import { ReactComponent } from '*.svg';
 
-import Projects from '../Projects/Projects';
 
-class VisibleProjects extends Component {
-  
-  constructor() {
-    super()
-    this.state = {
-      data: [],
-      filteredProjects: []
-    }
-  }
+class Search extends ReactComponent{
 
- 
-
-  filterProjects = (dataFilter) => {
-
-    let filteredProjects = this.state.data
-    filteredProjects = filteredProjects.filter((data) => {
-      let dataKuvaus = data.kuvaus.toLowerCase() 
-      return data.indexOf(
-        dataFilter.toLowerCase()) !== -1
+  filterList: function(event){
+    var updatedList = this.state.initialProjects;
+    updatedList = updatedList.filter(function(project){
+      return project.toLowerCase().search(
+        event.target.value.toLowerCase()) !== -1;
     });
-    this.setState({
-      filteredProjects
-    })
-  }
-
-  render() {
+    this.setState({projects: updatedList});
+  },
+  getInitialState: function(){
+     return {
+       initialProjects: [
+       data
+       ],
+       projects: []
+     }
+  },
+  componentWillMount: function(){
+    this.setState({items: this.state.initialProjects})
+  },
+  render: function(){
     return (
-      <Projects dataKuvaus={this.state.filteredProjects} match={this.props.match} onChange={this.filterProjects} />
-    )
+      <div className="filter-list">
+        <input type="text" placeholder="Search" onChange={this.filterList}/>
+      <List projectss={this.state.projects}/>
+      </div>
+    );
   }
-}
+});
 
-export default VisibleProjects;*/
+var List = React.createClass({
+  render: function(){
+    return (
+      <ul>
+      {
+        this.props.projects.map(function(projects) {
+          return <li key={project}>{project}</li>
+        })
+       }
+      </ul>
+    )  
+  }
+});
+
+}*/
+
+

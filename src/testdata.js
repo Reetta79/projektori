@@ -29,7 +29,7 @@ const testdata = [
         loppupvm: '2020-09-20',
         kuvaus:"Laskun hyväksyntäprosessi",
         budjetti:"Ei",
-        summa:0,
+        summa:"",
         valmiusaste:"70",
         
       },
@@ -63,7 +63,7 @@ const testdata = [
         loppupvm: '2020-10-20',
         kuvaus:"Oili: Pääkäyttäjien koulutus",
         budjetti:"Ei",
-        summa:0,
+        summa:"",
         valmiusaste:"",
         
       }

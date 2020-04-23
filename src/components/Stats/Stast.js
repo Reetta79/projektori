@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Doughnut } from 'react-chartjs-2';
+import { Bar} from 'react-chartjs-2';
 
 import Content from '../Content/Content';
 
@@ -11,7 +11,7 @@ import './Stats.css';
   const reducer = (groupedData,currentProject) => {
     const index = groupedData.findIndex (project => project.tyyppi === currentProject.tyyppi);
     if (index >= 0){
-      groupedData[index].loppupvm = groupedData[index].summa + currentProject.summa;
+      groupedData[index].summa = groupedData[index].summa + currentProject.summa;
     }else{
       groupedData.push({tyyppi: currentProject.tyyppi, summa:currentProject.summa});
     }
@@ -20,28 +20,40 @@ import './Stats.css';
 
   let groupedData= props.data.reduce(reducer,[]);
 
-  let doughnutData ={
+  let barData ={
     labels: groupedData.map(project => project.tyyppi),
+    
     datasets: 
         [
           {
-         data:groupedData.map(project => project.summa)
+         data:groupedData.map(project => project.summa),
+         label:"",
+         
+         responsive: true,
+         maintainAspectRatio:false,
+         backgroundColor:[
+          '#9AF376',
+          '#76D8F3',
+          '#DDCF78',
+         ]
           }
         ]
       
-  }
+      }
 
 
-
+  
+      
+    
+      
     return (
       <Content>
             
-      <h2> Tilastot </h2>
+      <h2> Budjetointikooste </h2>
         <div className= 'stats__graph'>
-         <Doughnut data={doughnutData}/>
+         <Bar data={barData}/>
         </div>
-        
-        
+      
       </Content>
     );
     }
