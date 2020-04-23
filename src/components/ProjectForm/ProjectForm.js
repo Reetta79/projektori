@@ -105,9 +105,9 @@ class ProjectForm extends React.Component {
                         
                         <select type="text" name = "tyyppi"  value={this.state.data.tyyppi} onChange={this.handleInputChange}>
                                 <option value=""></option>
-                                <option value= "Uusi järjestelmä">Uusi järjestelmä</option>
                                 <option value= "Järjestelmän jatkokehitys">Järjestelmän jatkokehitys</option>
                                 <option value= "Prosessin kehitys">Prosessin kehitys</option>
+                                <option value= "Uusi järjestelmä">Uusi järjestelmä</option>                                           
                         </select>
                         </div>
                         </div>

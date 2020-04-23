@@ -1,43 +1,29 @@
 /*import React from 'react';
+import moment from 'moment';
 
+import './Filter.css';
 
-function Filters(props) {
-
-    let data= props.data.map
-
-   
+ function HandleList(props) {
  
-    var B = data.filter(project => project.valmiusaste <= "90")
-    var C = data.filter(project => project.budjetti === "Ei")    
+      let currentDate= Date.now();
+      let currentDate2= moment(currentDate);
+      let vertailu= currentDate2.format('D.M.Y');
 
+      const filtereddata= props.data.filter( project.loppupvm <= vertailu)
 
+      <ListItem key={project.loppupvm}
+      value={loppupvm} />
+      );
+      return(
+      <div className="lista">
+        <ul>
+     <li>
+      {filtereddata}
+     </li>
+     </ul>
+     </div>
+      )
+      }
+    
 
-    function showB() {
-        return B
-    }
-
-    function showC() {
-       return C
-    }
-
-    return (
-        <div className="filter">
-            
-            <button onClick={showB()}>B</button>
-            <button onClick={showC()}>C</button>
-
-            {
-               data && data.map((project) => (
-                    
-                      
-                
-
-                ))
-            }
-        </div>
-
-    );
-}
-
-export default Filters;*/
-
+export default HandleList;*/

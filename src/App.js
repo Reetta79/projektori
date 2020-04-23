@@ -4,7 +4,7 @@ import './App.css';
 
 import firebase from './firebase';
 
-import testdata from '../src/testdata';
+
 import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
 import Stats from './components/Stats/Stast.js';
@@ -14,7 +14,7 @@ import EditProject from './components/EditProject/EditProject';
 import DoneProjects from './components/DoneProject/DoneProject';
 import DoneHalf from './components/DoneHalf/DoneHalf';
 import DoneOverHalf from './components/DoneOverHalf/DoneOverHalf';
-
+import HandleList from './components/Filters/Filters';
 
 class App extends Component {
 
@@ -26,7 +26,7 @@ class App extends Component {
         this.dbRef=firebase.firestore();
        this.handleFormSubmit= this.handleFormSubmit.bind(this);
        this.handleDeleteProject=this.handleDeleteProject.bind(this);
-       /*this.handleList=this.handleList.bind(this);*/
+      
        this.handleList4=this.handleList4.bind(this);
        this.handleList2=this.handleList2.bind(this);
        this.handleList3=this.handleList3.bind(this);
@@ -112,27 +112,7 @@ class App extends Component {
                 });
                 }
 
-              
-                             
-               
-
-             /* tätä pitää vielä katoa uudellee. Filtterille täytynee tehdä oma komponentti, kun aikaa. 
-             handleList() {
-
-                let data= this.state.data;
-                const projectlist=({data.valmiusaste<="90"}) =>{
-                const [list,setList] = dones;
-                const deleteProject=index =>{
-                  const newList =list.filter(
-
-                   (project,projectIndex) =>index !== projectIndex
-                  );
-                  return setList([...newList])
-                }
-                }
-           
-               */
-
+                
            
                 
               
@@ -144,10 +124,10 @@ class App extends Component {
                   <Header  />
                   <div className="Nappi">
                
-                  <Route path= "/" exact render= {() => <button onClick={this.handleList3} secondary> Järjestä: valmiina 0% -100% </button>}/>
+                  <Route path= "/" exact render= {() => <button onClick={this.handleList3} secondary={toString()}> Järjestä: valmiina 0% -100% </button>}/>
                   <Route path = "/" exact render = { () => <button onClick={this.handleList2} secondary>Järjestä: Kuvauksen mukaan </button>}/>
                   <Route path = "/" exact render = { () => <button onClick={this.handleList4} secondary>Järjestä: Päättymispäivän mukaan </button>}/>
-                  <Route path = "/" exact render = { () => <button onClick={this.handleList} secondary>Järjestä: Suodata </button>}/>
+            
                   </div>
                   <Route path= "/stats" render = {()=><Stats data={this.state.data} />} />
                   <Route path= "/" exact render = {()=><Projects data={this.state.data} />} />
