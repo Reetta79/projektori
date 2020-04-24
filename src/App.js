@@ -14,7 +14,7 @@ import EditProject from './components/EditProject/EditProject';
 import DoneProjects from './components/DoneProject/DoneProject';
 import DoneHalf from './components/DoneHalf/DoneHalf';
 import DoneOverHalf from './components/DoneOverHalf/DoneOverHalf';
-import HandleList from './components/Filters/Filters';
+
 
 class App extends Component {
 
@@ -54,19 +54,23 @@ class App extends Component {
             this.refData.doc(newdata.id).set(newdata);
           }
 
-          handleList4(){
+         
+          handleList4() {
             let data= this.state.data.slice();
-            data.sort((a,b) => {
-            const aDate= new Date(a.loppupvm);
-            const bDate= new Date(b.loppupvm);
-            return bDate.getTime() - aDate.getTime();
-            }); 
-
-            this.setState({
+            data.sort (function (a, b) {
+              if(a.budjetti<b.budjetti)
+              {return -1;}
+              if (a.budjetti>b.budjetti) 
+              {return 1;}   
+              else {
+               return 0; 
+              }
+            });
+             this.setState({
               data: data
               
             });
-          }
+            }
 
           /*projektin poistaminen*/
             
@@ -125,8 +129,8 @@ class App extends Component {
                   <div className="Nappi">
                
                   <Route path= "/" exact render= {() => <button onClick={this.handleList3} secondary={toString()}> Järjestä: valmiina 0% -100% </button>}/>
-                  <Route path = "/" exact render = { () => <button onClick={this.handleList2} secondary>Järjestä: Kuvauksen mukaan </button>}/>
-                  <Route path = "/" exact render = { () => <button onClick={this.handleList4} secondary>Järjestä: Päättymispäivän mukaan </button>}/>
+                  <Route path = "/" exact render = { () => <button onClick={this.handleList2} secondary={toString()}>Järjestä: Kuvauksen mukaan </button>}/>
+                  <Route path = "/" exact render = { () => <button onClick={this.handleList4} secondary={toString()}>Järjestä: Projektit, joilla ei budjettia </button>}/>
             
                   </div>
                   <Route path= "/stats" render = {()=><Stats data={this.state.data} />} />

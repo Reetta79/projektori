@@ -22,12 +22,12 @@ class ProjectForm extends React.Component {
                 const data =props.data ? props.data : 
                 {    
                 id:"",
-                tyyppi:"",
+                tyyppi:"Järjestelmän jatkokehitys",
                 alkupvm: "",
                 loppupvm: "",
                 kuvaus:"",
-                budjetti:"",
-                summa:"",
+                budjetti:"Kyllä",
+                summa:"0",
                 valmiusaste:"",
                 valmis:""
                 }
@@ -66,7 +66,7 @@ class ProjectForm extends React.Component {
             handleSubmit(event){
                 event.preventDefault();
                 let data= Object.assign({}, this.state.data);
-                data.summa=parseInt(data.summa);
+                data.summa=parseFloat(data.summa);
                 data.id= data.id ? data.id : uuidv4();
                 this.props.onFormSubmit(data);
                 this.props.history.push("/");
@@ -104,7 +104,6 @@ class ProjectForm extends React.Component {
                         <label htmlFor="name" >Valitse tyyppi </label>
                         
                         <select type="text" name = "tyyppi"  value={this.state.data.tyyppi} onChange={this.handleInputChange}>
-                                <option value=""></option>
                                 <option value= "Järjestelmän jatkokehitys">Järjestelmän jatkokehitys</option>
                                 <option value= "Prosessin kehitys">Prosessin kehitys</option>
                                 <option value= "Uusi järjestelmä">Uusi järjestelmä</option>                                           
