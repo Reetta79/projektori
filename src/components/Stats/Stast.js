@@ -1,10 +1,9 @@
 import React from 'react';
 
-import {Pie} from 'react-chartjs-2';
 import {Bar} from 'react-chartjs-2';
 
 import Content from '../Content/Content';
-import moment from 'moment';
+
 
 import './Stats.css';
 
@@ -19,9 +18,14 @@ import './Stats.css';
       groupedData.push({tyyppi: currentProject.tyyppi, summa:currentProject.summa});
     }
     return groupedData;
+    
   }
 
+
   let groupedData= props.data.reduce(reducer,[]);
+  
+  console.log(groupedData);
+
 
   let barData ={
     labels: groupedData.map(project => project.tyyppi),
@@ -32,7 +36,7 @@ import './Stats.css';
           {
             type:'bar',
          data:groupedData.map(project => project.summa),
-         label:"",
+         label:" ",
          responsive:true,
          maintainAspectRatio:false,
          backgroundColor:[
@@ -54,7 +58,7 @@ import './Stats.css';
         }
 
 
-        const x = props.data.filter(project => project.valmiusaste <= "90");
+      const x = props.data.filter(project => project.valmiusaste <= "90");
 
         const groupBy=(objectArray, valmiusaste) => {
           return objectArray.reduce (function(total,project){
@@ -70,15 +74,18 @@ import './Stats.css';
         let asteet= groupBy(x,'valmiusaste'[""]);
         
         console.log(asteet);
-      
         
+        
+       
+        
+
        let kesken= x.length;
 
         let barData2 = {
           
-          labels: x.map(project=> project.loppupvm) ,
+          labels: x.map(project=> project.loppupvm + (' ,') + project.kuvaus.slice(0,10)),
           datasets: [{
-              label:"Keskeneräiset " + kesken,
+              label:"Yhteensä keskeneräisiä " +kesken,
               type:'bar',
               data:x.map(project=> project.valmiusaste),
               responsive:true,
@@ -96,27 +103,38 @@ import './Stats.css';
               ]
           }]
         }
-      
-
         
         let options2={
-          responsive: true,
-          maintainAspectRatio:false,
-          scales: {
+            responsive: true,
+            maintainAspectRatio:false,
+            scales: {
             yAxes: [{
               ticks: {
                 beginAtZero: true
               }
             }],
             xAxes:[{
-              ticks: {
-             type: "time",
-             time:("D.M.Y"),
-              }
+                 type: "time",
+                  time:{
+                  displayFormats:{
+                  day:'D.M.Y'        
+                } 
+            }
             }]
           }
-            
         }
+            
+      
+          
+       
+          
+        
+        
+         /* let options3 = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales:{*/
+         
        
             return (
               <Content>
@@ -126,9 +144,9 @@ import './Stats.css';
                 <Bar data={barData} options={options}/>
                 </div>
 
-                <h2> Päättyy/valmiina </h2>
+                <h2> Päätymispäivä, valmiina %</h2>
                 <div className= 'stats__graph'>
-                <Bar data={barData2} options2={options2}/>
+                <Bar data={barData2} options2={options2} />
                 </div>
               
               </Content>
