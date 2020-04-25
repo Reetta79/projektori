@@ -1,8 +1,10 @@
 import React from 'react';
 
+import {Pie} from 'react-chartjs-2';
 import {Bar} from 'react-chartjs-2';
 
 import Content from '../Content/Content';
+import moment from 'moment';
 
 import './Stats.css';
 
@@ -51,85 +53,86 @@ import './Stats.css';
           }
         }
 
-        
-      
-        const reducer2 = function (groupedData2,currentProject) {
-          let index2 = groupedData2.findIndex (project => project.id=== currentProject.id);
-        
-          if (index2<0){
-           currentProject.count=1;
-            groupedData2.push({valmiusaste: currentProject.valmiusaste});
-          }else{
-            groupedData2.valmiusaste.count = groupedData2.valmiusaste.count +1;
-            groupedData2.push({valmiusaste: groupedData2});
-          }
-          return groupedData2;
+
+        const x = props.data.filter(project => project.valmiusaste <= "90");
+
+        const groupBy=(objectArray, valmiusaste) => {
+          return objectArray.reduce (function(total,project){
+            let key =project[valmiusaste];
+            if(!total[key]) {
+              total[key]=[];
+            }
+            total[key].push(project);
+            return total;
+          },{});
           
         }
+        let asteet= groupBy(x,'valmiusaste'[""]);
+        
+        console.log(asteet);
       
-       
+        
+       let kesken= x.length;
 
-        let groupedData2= props.data.reduce(reducer2,[]);
-        console.log(groupedData2);
-        let amount= groupedData2.length;
-
-        let barData2 ={
-          labels: groupedData2.map (project=> project.valmiusaste),
+        let barData2 = {
           
-          datasets: 
-         
-              [
-                {
-                  type:'bar',
-               data:"",
-               label:"Kaikki " + amount,
-               responsive:true,
-               maintainAspectRatio:false,
-               backgroundColor:[
+          labels: x.map(project=> project.loppupvm) ,
+          datasets: [{
+              label:"Keskeneräiset " + kesken,
+              type:'bar',
+              data:x.map(project=> project.valmiusaste),
+              responsive:true,
+              maintainAspectRatio:false,
+              backgroundColor:[
                 '#9AF376',
                 '#76D8F3',
                 '#DDCF78',
-              ]}]
-            }
+                '#7FFFD4',
+                '#5F9EA0',
+                '#00BFFF',
+                '#00008B',
+                '#ADD8E6'
+
+              ]
+          }]
+        }
       
-              let options2={
-                responsive: true,
-                scales: {
-                  yAxes: [{
-                    ticks: {
-                      beginAtZero: true
-                    }
-                  }]
-                }
-              }
 
         
-
-       /* let zero = props.data.filter (project => project.valmiusaste < "10").length;
-        let ten = props.data.filter (project => project.valmiusaste === "10").lenght;
-        let twe = props.data.filter (project => project.valmiusaste === "20").length;
-       /* let twe = props.data.filter (project => project.valmiusaste === "20").length;
-        let twe = props.data.filter (project => project.valmiusaste === "20").length;  
-        let twe = props.data.filter (project => project.valmiusaste === "20");  
-        let twe = props.data.filter (project => project.valmiusaste === "20");
-        let twe = props.data.filter (project => project.valmiusaste === "20");
-        let twe = props.data.filter (project => project.valmiusaste === "20");
-        let twe = props.data.filter (project => project.valmiusaste === "20");
-        let twe = props.data.filter (project => project.valmiusaste === "20");*/
-    return (
-      <Content>
+        let options2={
+          responsive: true,
+          maintainAspectRatio:false,
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }],
+            xAxes:[{
+              ticks: {
+             type: "time",
+             time:("D.M.Y"),
+              }
+            }]
+          }
             
-      <h2> Budjetointikooste </h2>
-        <div className= 'stats__graph'>
-         <Bar data={barData} options={options}/>
-        </div>
+        }
+       
+            return (
+              <Content>
+                    
+              <h2> Budjetointikooste </h2>
+                <div className= 'stats__graph'>
+                <Bar data={barData} options={options}/>
+                </div>
 
-        <div className= 'stats__graph'>
-         <Bar data={barData2} options={options2}/>
-        </div>
-      
-      </Content>
-    );
+                <h2> Päättyy/valmiina </h2>
+                <div className= 'stats__graph'>
+                <Bar data={barData2} options2={options2}/>
+                </div>
+              
+              </Content>
+            );
     }
 
 
