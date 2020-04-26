@@ -12,7 +12,6 @@ function Header(props) {
         <div className="ulos">
         <button onClick={props.onLogout}><label>Kirjaudu ulos</label> </button>  
         </div>
-
         </div> 
         </div>
    
