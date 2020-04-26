@@ -5,7 +5,7 @@ import OverHalf from '../StatsCheckOverHalf/OverHalf';
 
 import './DoneOverHalf.css';
 
-
+/*erotellaan done- näytölle projektit, joista tehty yli puolet, tulostetaan määrä*/
 function DoneOverHalf(props) {
 
 let overhalf = props.data.filter (project => project.valmiusaste > "50" && project.valmiusaste <= "90")

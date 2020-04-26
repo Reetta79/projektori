@@ -10,6 +10,8 @@ import './Stats.css';
 
  function Stats(props) {
 
+  /*koostetaan budjetin määrä projektityypeittän*/
+
   const reducer = (groupedData,currentProject) => {
     const index = groupedData.findIndex (project => project.tyyppi === currentProject.tyyppi);
     if (index >= 0){
@@ -58,11 +60,18 @@ import './Stats.css';
         }
 
 
+
+        /* filteröidään pois valmiit*/
       const x = props.data.filter(project => project.valmiusaste <= "90");
 
-        const groupBy=(objectArray, valmiusaste) => {
+    
+      /*valmiusasteen erottaminen per objekti, peruutettu alkuperäiseen koodiin. Ei hyötyä kappalemäärän kanssa, kun tarvitaan tietoa yksittäisestä projektista. 
+      katsotaan käyttöä uudelleen, kun määritelty väline porjektin laajuudeen tarkasteluun. Dataa pitänee myös jakaa pienempiin osiin.
+
+     const groupBy=(objectArray, valmiusaste) => {
           return objectArray.reduce (function(total,project){
             let key =project[valmiusaste];
+           
             if(!total[key]) {
               total[key]=[];
             }
@@ -73,11 +82,11 @@ import './Stats.css';
         }
         let asteet= groupBy(x,'valmiusaste'[""]);
         
-        console.log(asteet);
+        console.log(asteet); testataan, että tuo oikean kentän*/
         
         
        
-        
+        /*tulostetaan keskeneräisten määrä, lisätään arvot x- ja y-akseleille ja katkaistaan kuvauskentän teksti*/
 
        let kesken= x.length;
 
@@ -122,7 +131,7 @@ import './Stats.css';
             }
             }]
           }
-        }
+        } 
             
       
           
@@ -147,8 +156,7 @@ import './Stats.css';
                 <h2> Päätymispäivä, valmiina %</h2>
                 <div className= 'stats__graph'>
                 <Bar data={barData2} options2={options2} />
-                </div>
-              
+                </div>     
               </Content>
             );
     }

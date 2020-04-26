@@ -4,8 +4,7 @@ import Content from '../Content/Content';
 import ProjectDone from '../ProjectDone/ProjectDone';
 
 import './DoneProject.css';
-
-
+/*erotellaan done- näytölle projektit, jotka valmiita*/
 function DoneProjects(props) {
 
   
