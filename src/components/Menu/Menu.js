@@ -5,7 +5,7 @@ import TrendingUp from "@material-ui/icons/TrendingUp";
 import CheckCircle from "@material-ui/icons/CheckCircle";
 import FibreNew from '@material-ui/icons/FiberNew';
 
-
+/*napit linkeiksi menuun*/
 
 import './Menu.css';
 

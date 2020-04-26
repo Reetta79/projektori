@@ -16,6 +16,11 @@
   }
 
 .ulos{
-  margin-left: -150px;
-  margin-top: -40px;
+  margin-left: -160px;
+  margin-top: -50px;
+ 
+}
+
+.ulos button{
+  background-color: rgb(46, 195, 46);
 }

@@ -165,6 +165,7 @@ class App extends Component {
                     <div className="App">
                       <Header/>
                       <Content>
+                        
                         <div className="app_welcome">
                       <p>Et ole kirjautunut sisälle</p> 
                       <p><Button primary onClick={this.login}>Kirjaudu tästä</Button></p>
@@ -178,7 +179,7 @@ class App extends Component {
               return(  
                   <Router>
                   <div className="App">
-                  <Route path= "/" exact render = {()=><Header  onLogout={this.logout} />} />
+                  <Route path= "/" render = {()=><Header  onLogout={this.logout} />} />
                   <div className="Nappi">
                
                   <Route path= "/" exact render= {() => <button onClick={this.handleList3} secondary={toString()}> Järjestä: valmiina 0% -100% </button>}/>

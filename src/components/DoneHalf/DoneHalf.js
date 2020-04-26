@@ -5,7 +5,7 @@ import './DoneHalf.css';
 import Content from '../Content/Content';
 import StatsCheckHalf from '../StatsCheckHalf/StatsCheckHalf';
 
-
+/*erotellaan done- näytölle projektit, joista tehty 50 tai sen alle, tulostetaan määrä*/
 function DoneHalf(props) {
 
 let half = props.data.filter(project => project.valmiusaste <= "50")

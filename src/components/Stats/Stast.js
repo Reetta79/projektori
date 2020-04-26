@@ -90,9 +90,11 @@ import './Stats.css';
 
        let kesken= x.length;
 
+ 
+
         let barData2 = {
           
-          labels: x.map(project=> project.loppupvm + (' ,') + project.kuvaus.slice(0,10)),
+          labels: x.map(project=> project.loppupvm + (", ") + project.kuvaus.slice(0,10)), /*Päivämääräkenttä ei kääntynyt millään suomalaiseen muotoon, johtunee kahdesta arvosta?*/
           datasets: [{
               label:"Yhteensä keskeneräisiä " +kesken,
               type:'bar',
@@ -122,7 +124,7 @@ import './Stats.css';
                 beginAtZero: true
               }
             }],
-            xAxes:[{
+            xAxes:[{          /*yritetty vielä hakea x-akselin päivämäärää osiota erikseen, kokeiltu eri muotoja, kokeiltu erottaa optionsit omaksi*/
                  type: "time",
                   time:{
                   displayFormats:{
