@@ -31,3 +31,11 @@
   font-weight: 500;
 }
 
+.app_welcome {
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 5em;
+}
+

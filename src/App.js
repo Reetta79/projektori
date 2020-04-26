@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
-import firebase from './firebase';
+import firebase, { provider,auth } from './firebase';
 
 
 import Header from './components/Header/Header';
@@ -14,6 +14,8 @@ import EditProject from './components/EditProject/EditProject';
 import DoneProjects from './components/DoneProject/DoneProject';
 import DoneHalf from './components/DoneHalf/DoneHalf';
 import DoneOverHalf from './components/DoneOverHalf/DoneOverHalf';
+import Content from './components/Content/Content';
+import Button from './components/buttons';
 
 
 class App extends Component {
@@ -22,11 +24,13 @@ class App extends Component {
         super(props);
         this.state ={
           data:[],
+          user:null
         }
         this.dbRef=firebase.firestore();
        this.handleFormSubmit= this.handleFormSubmit.bind(this);
        this.handleDeleteProject=this.handleDeleteProject.bind(this);
-      
+       this.login=this.login.bind(this);
+       this.logout=this.logout.bind(this);
        this.handleList4=this.handleList4.bind(this);
        this.handleList2=this.handleList2.bind(this);
        this.handleList3=this.handleList3.bind(this);
@@ -35,8 +39,16 @@ class App extends Component {
       /*lisätään db:n tiedon käsittelijä ja sanpshot tietojen näyttämiseksi. Järjetetään tiedot "lähtöruudulle"*/
 
       componentDidMount(){
-        this.refData=this.dbRef.collection('data');
-        this.refData.orderBy("loppupvm").onSnapshot((docs)=>{
+        auth.onAuthStateChanged((user) => {
+
+          if(user){
+            this.setState({
+              user:user
+            });
+
+            this.refData=this.dbRef.collection("users").doc(user.uid).collection('data');  
+        
+        this.unsubscribe= this.refData.orderBy("loppupvm").onSnapshot((docs)=>{
           let data=[];
           docs.forEach((doc)=> {
             let docdata =doc.data();
@@ -46,6 +58,8 @@ class App extends Component {
             data:data
           });
         });
+      }
+      });
       }
 
           /*datan siirto tallennuksella/lisäyksellä*/
@@ -115,17 +129,56 @@ class App extends Component {
                   
                 });
                 }
+  /*testattu, että käyttäjä näkyy consolessa oikein, ei tuoda näkyviin,
+  sillä ei mielekästä paikkaa näyttää ja ajatuksena yhteinen organisaatiotunnus*/
+             login() {
+               auth.signInWithPopup(provider).then((result)=> {
+                const user=result.user;
+                this.setState({
+                  user: user,
+                  error:null
+                });
+               }).catch((error) => {
+                 const errorMessage =error.message;
+                 this.setState({
+                   error:errorMessage
+                 });
+               });
+             }   
 
-                
-           
-                
+             logout(){
+              this.unsubscribe();
+               auth.signOut().then(()=> {
+                 this.setState({
+                   user:null
+                 });
+                 this.refData=null;
+               });
+             }
               
                 
             render () {
+
+              if (!this.state.user) {
+                return(
+                  <Router>
+                    <div className="App">
+                      <Header/>
+                      <Content>
+                        <div className="app_welcome">
+                      <p>Et ole kirjautunut sisälle</p> 
+                      <p><Button primary onClick={this.login}>Kirjaudu tästä</Button></p>
+                      {this.state.error?<p>{this.state.error}</p>:null}
+                      </div>
+                      </Content>
+                    </div>
+                  </Router>
+                )
+              }
               return(  
                   <Router>
                   <div className="App">
-                  <Header  />
+                  <Route path= "/" exact render = {()=><Header  onLogout={this.logout} />} />
                   <div className="Nappi">
                
                   <Route path= "/" exact render= {() => <button onClick={this.handleList3} secondary={toString()}> Järjestä: valmiina 0% -100% </button>}/>
