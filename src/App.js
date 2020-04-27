@@ -163,10 +163,12 @@ class App extends Component {
                 return(
                   <Router>
                     <div className="App">
-                      <Header/>
-                      <Content>
-                        
+                    
+                      <Content>          
                         <div className="app_welcome">
+                          <div className="app_name">
+                        <h1>PROJEKTORI</h1> 
+                        </div>
                       <p>Et ole kirjautunut sisälle</p> 
                       <p><Button primary onClick={this.login}>Kirjaudu tästä</Button></p>
                       {this.state.error?<p>{this.state.error}</p>:null}

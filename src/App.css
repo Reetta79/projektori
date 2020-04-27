@@ -39,3 +39,8 @@
   padding-top: 5em;
 }
 
+.app_name{
+  font-weight: 800;
+  color:  rgb(46, 195, 46);
+  font-variant: small-caps;
+}
