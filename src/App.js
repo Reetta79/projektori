@@ -46,6 +46,7 @@ class App extends Component {
               user:user
             });
 
+            
             this.refData=this.dbRef.collection("users").doc(user.uid).collection('data');  
         
         this.unsubscribe= this.refData.orderBy("loppupvm").onSnapshot((docs)=>{

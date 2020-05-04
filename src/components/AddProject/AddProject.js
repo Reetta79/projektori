@@ -4,7 +4,7 @@ import React from 'react';
 import Content from '../Content/Content';
 import ProjectForm from '../ProjectForm/ProjectForm';
 
-
+/*lisäysfunktion kautta kootaan tiedot App.js:lle renderöintiin*/
 
 import './AddProject.css';
 

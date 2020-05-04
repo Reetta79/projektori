@@ -135,16 +135,7 @@ import './Stats.css';
           }
         } 
             
-      
-          
-       
-          
-        
-        
-         /* let options3 = {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales:{*/
+    
          
        
             return (

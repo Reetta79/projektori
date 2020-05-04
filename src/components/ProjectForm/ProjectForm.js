@@ -80,6 +80,7 @@ class ProjectForm extends React.Component {
                 this.props.history.goBack(); 
             }
 
+            /*projektin poisto*/
             handleDeleteProject(event){
                 event.preventDefault();
                 this.props.onDeleteProject(this.state.data.id);
@@ -112,7 +113,7 @@ class ProjectForm extends React.Component {
                         </div>
                         <div className="projectform__row">
                         <div>
-                        <label htmlFor="alkupvm">Aloituspäivä 2 </label><div className="info__user">Jos projekti on jo aloitettu, valitse alkuperäinen aloituspäivämäärä.</div><input  type="date" name="alkupvm" value={this.state.data.alkupvm} onChange={this.handleInputChange} size="10"/>
+                        <label htmlFor="alkupvm">Aloituspäivä </label><div className="info__user">Jos projekti on jo aloitettu, valitse alkuperäinen aloituspäivämäärä.</div><input  type="date" name="alkupvm" value={this.state.data.alkupvm} onChange={this.handleInputChange} size="10"/>
                         </div>
                         <div>
                         <label htmlFor="loppupvm">Päättymispäivä </label><div className="info__user">Valitse arvioitu päättymispäivä, jos sitä ei ole määritelty.</div>   <input type="date" name="loppupvm" value={this.state.data.loppupvm} onChange={this.handleInputChange} size="10"/> 

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Content.css';
 
+/*kootaan komponettien tietoja contentin sisälle*/
 
 function Content(props) {
     return (

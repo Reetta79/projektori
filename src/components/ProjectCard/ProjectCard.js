@@ -34,7 +34,9 @@ function ProjectCard(props) {
           <div className="projectcard__budjetti">{props.data.budjetti}</div>
           </div>
           <div className="projectcard__row"> 
-          <h4>Kuvaus </h4>
+          <h4> Kuvaus  </h4>
+          </div>
+          <div className="projectcard__row"> 
           <div className="projectcard__row">{props.data.kuvaus}</div>   
           </div>
           <div className="projectcard__row"> 
