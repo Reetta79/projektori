@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Content from '../Content/Content';
+import Content2 from '../Content2/Content2';
 import ProjectDone from '../ProjectDone/ProjectDone';
 
 import './DoneProject.css';
@@ -20,7 +20,9 @@ function DoneProjects(props) {
     
 
     return(
-      <Content>
+      <div className="box">
+      <Content2>
+        
         <div className="otsikko3">
         <div className="otsikko3__teksti">
         <div><h4> Valmiit</h4> <h5>Määrä: {amount3}</h5></div></div>
@@ -28,7 +30,8 @@ function DoneProjects(props) {
         
          {rows}
         
-      </Content>
+      </Content2>
+      </div>
     );
   }
 

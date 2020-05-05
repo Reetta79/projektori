@@ -2,7 +2,7 @@ import React from 'react';
 
 import './DoneHalf.css';
 
-import Content from '../Content/Content';
+import Content2 from '../Content2/Content2';
 import StatsCheckHalf from '../StatsCheckHalf/StatsCheckHalf';
 
 /*erotellaan done- näytölle projektit, joista tehty 50 tai sen alle, tulostetaan määrä*/
@@ -15,13 +15,17 @@ let amount=(half.length);
     <StatsCheckHalf data={card} key={card.id} luku={amount}/>
   );
     return (
-      <Content>
+      <div className="box">
+      <Content2>
+        
          <div className="otsikko">  
        <h4>Valmiina alle puolet</h4><h5>Määrä: {amount}</h5>
        </div> 
+       
         {rows}   
         
-      </Content>
+      </Content2>
+      </div> 
     );
   }
 
