@@ -24,8 +24,8 @@ function DoneProjects(props) {
       <Content2>
         
         <div className="otsikko3">
-        <div className="otsikko3__teksti">
-        <div><h4> Valmiit</h4> <h5>Määrä: {amount3}</h5></div></div>
+      
+        <div><h4> Valmiit</h4> <h5>Määrä: {amount3}</h5></div>
         </div>
         
          {rows}

@@ -15,17 +15,19 @@ let amount=(half.length);
     <StatsCheckHalf data={card} key={card.id} luku={amount}/>
   );
     return (
+      
       <div className="box">
       <Content2>
         
-         <div className="otsikko">  
-       <h4>Valmiina alle puolet</h4><h5>Määrä: {amount}</h5>
-       </div> 
+      <div className="otsikko">  
+      <h4>Valmiina alle puolet</h4><h5>Määrä: {amount}</h5>
+      </div>
        
         {rows}   
         
       </Content2>
       </div> 
+      
     );
   }
 

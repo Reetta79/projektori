@@ -16,16 +16,19 @@ let amount2=(overhalf.length);
     <OverHalf data={card} key={card.id}/>
   );
     return (
+      
       <div className = "box">
-      <Content2>
+      
+          <Content2>
+             <div className="otsikko2"> 
+
+              <h4>Valmiina yli puolet</h4> <h5>Määrä: {amount2}</h5></div>
+           
+          {rows}   
         
-            <div className="otsikko2"> 
-       <h4>Valmiina yli puolet</h4> <h5>Määrä: {amount2}</h5>
-            </div>
-        {rows}   
-        
-      </Content2>
-      </div> 
+          </Content2>
+          </div> 
+     
     );
   }
 

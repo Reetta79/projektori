@@ -3,7 +3,7 @@ import React from 'react';
 import {Bar} from 'react-chartjs-2';
 
 import Content from '../Content/Content';
-import moment from 'moment';
+
 
 import './Stats.css';
 
@@ -27,8 +27,8 @@ import './Stats.css';
   let groupedData= props.data.reduce(reducer,[]);
   
   console.log(groupedData);
-
-
+  
+  let all= props.data.map(project => project.summa).reduce((a,b) => a + b, 0)
 
   let barData ={
     labels: groupedData.map(project => project.tyyppi),
@@ -39,7 +39,7 @@ import './Stats.css';
           {
             type:'bar',
          data:groupedData.map(project => project.summa),
-         label:" ",
+         label:"Budjetoitu yhteensä " + all + " €",
          responsive:true,
          maintainAspectRatio:false,
          backgroundColor:[
@@ -67,7 +67,7 @@ import './Stats.css';
 
     
       /*valmiusasteen erottaminen per objekti, peruutettu alkuperäiseen koodiin. Ei hyötyä kappalemäärän kanssa, kun tarvitaan tietoa yksittäisestä projektista. 
-      katsotaan käyttöä uudelleen, kun määritelty väline porjektin laajuudeen tarkasteluun. Dataa pitänee myös jakaa pienempiin osiin.
+      katsotaan käyttöä uudelleen, kun määritelty väline projektin laajuudeen tarkasteluun. Dataa pitänee myös jakaa pienempiin osiin.
 
      const groupBy=(objectArray, valmiusaste) => {
           return objectArray.reduce (function(total,project){
@@ -91,11 +91,9 @@ import './Stats.css';
 
        let kesken= x.length;
 
-       let pvm = moment(props.data.loppupvm);
-
         let barData2 = {
           
-          labels: x.map(project=> pvm.format('D.M.Y') + (", ") + project.kuvaus.slice(0,10)), /*Päivämäärä suomalaiseen muotoon*/
+          labels: x.map(project=> project.loppupvm + (", ") + project.kuvaus.slice(0,10)), /*Päivämäärä suomalaiseen muotoon, ei onnistunut tässäkään, eikä pvm(moment + formatillakaan)*/
           datasets: [{
               label:"Yhteensä keskeneräisiä " +kesken,
               type:'bar',
@@ -125,14 +123,15 @@ import './Stats.css';
                 beginAtZero: true
               }
             }],
-            xAxes:[{          /*yritetty vielä hakea x-akselin päivämäärää osiota erikseen, kokeiltu eri muotoja, kokeiltu erottaa optionsit omaksi*/
-                 type: "time",
-                  time:{
-                  displayFormats:{
-                  day:'D.M.Y'        
-                } 
-            }
-            }]
+            
+            xAxes:[{          /*yritetty vielä hakea x-akselin päivämäärää osiota erikseen, kokeiltu eri muotoja, kokeiltu erottaa optionsit omaksi. */
+              type: "time",
+              time:{
+              displayFormats:{
+              day:'D.M.Y'        
+            } 
+        }
+        }]
           }
         } 
             
