@@ -131,7 +131,7 @@ class App extends Component {
                 });
                 }
   /*testattu, että käyttäjä näkyy consolessa oikein, ei tuoda näkyviin,
-  sillä ei mielekästä paikkaa näyttää ja ajatuksena yhteinen organisaatiotunnus*/
+  sillä ei mielekästä paikkaa näyttää ja ajatuksena myöhemmin yhteinen organisaatiotunnus -> vaatii muutoksia autentikointiin*/
              login() {
                auth.signInWithPopup(provider).then((result)=> {
                 const user=result.user;

@@ -3,7 +3,7 @@ import React from 'react';
 import {Bar} from 'react-chartjs-2';
 
 import Content from '../Content/Content';
-
+import moment from 'moment';
 
 import './Stats.css';
 
@@ -27,6 +27,7 @@ import './Stats.css';
   let groupedData= props.data.reduce(reducer,[]);
   
   console.log(groupedData);
+
 
 
   let barData ={
@@ -90,11 +91,11 @@ import './Stats.css';
 
        let kesken= x.length;
 
- 
+       let pvm = moment(props.data.loppupvm);
 
         let barData2 = {
           
-          labels: x.map(project=> project.loppupvm + (", ") + project.kuvaus.slice(0,10)), /*Päivämääräkenttä ei kääntynyt millään suomalaiseen muotoon, johtunee kahdesta arvosta?*/
+          labels: x.map(project=> pvm.format('D.M.Y') + (", ") + project.kuvaus.slice(0,10)), /*Päivämäärä suomalaiseen muotoon*/
           datasets: [{
               label:"Yhteensä keskeneräisiä " +kesken,
               type:'bar',
@@ -146,7 +147,7 @@ import './Stats.css';
                 <Bar data={barData} options={options}/>
                 </div>
 
-                <h2> Päätymispäivä, valmiina %</h2>
+                <h2> Päättymispäivä, valmiina %</h2>
                 <div className= 'stats__graph'>
                 <Bar data={barData2} options2={options2} />
                 </div>     
